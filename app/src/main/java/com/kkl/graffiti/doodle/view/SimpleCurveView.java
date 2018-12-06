@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 /**
@@ -66,7 +65,6 @@ public class SimpleCurveView extends View {
 
     /** 透明度，0透明，255不透明 */
     public void setLineAlpha(int alpha) {
-        Log.e("1718", "alpha == " + alpha);
         mPaint.setAlpha(alpha);
         invalidate();
     }

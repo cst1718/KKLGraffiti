@@ -2,77 +2,61 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/shape_dialog_bg_normal"
     android:orientation="vertical"
     >
 
     <TextView
-        android:id="@+id/dialog_select_title"
+        android:id="@+id/dialog_color_title"
         style="@style/public_style_text_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/public_common_title_height"
         android:gravity="center"
-        android:text="@string/dialog_select_title_size"/>
+        android:text="@string/dialog_color_title"/>
 
-    <com.kkl.graffiti.doodle.view.SimpleCurveView
-        android:id="@+id/cv_select_view"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="20dp"
-        android:layout_weight="1"/>
 
-    <LinearLayout
-        android:id="@+id/ll_select_size"
+    <com.kkl.graffiti.doodle.view.ColorPicker.ColorPicker
+        android:id="@+id/dialog_color_picker_colorPicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/public_list_margin"
         android:layout_marginLeft="@dimen/public_list_margin"
         android:layout_marginRight="@dimen/public_list_margin"
-        android:layout_marginTop="@dimen/public_list_margin"
-        android:orientation="vertical">
+        android:layout_marginTop="@dimen/dialog_color_seekbar_hint_margin"
+        android:gravity="center"
+        >
 
         <TextView
-            android:id="@+id/tv_select_size"
-            style="@style/public_style_text_primary"
+            style="@style/public_style_text_explain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/dialog_select_size"/>
+            android:layout_marginRight="@dimen/dialog_color_seekbar_hint_margin"
+            android:text="@string/dialog_color_hint_low"/>
 
-        <SeekBar
-            android:id="@+id/sk_select_size"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/select_dialog_seekbar_height"
-            />
+        <com.kkl.graffiti.doodle.view.ColorPicker.SVBar
+            android:id="@+id/dialog_color_picker_svbar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dialog_color_seekbar_height"
+            android:layout_weight="1"/>
+
+        <TextView
+            style="@style/public_style_text_explain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dialog_color_seekbar_hint_margin"
+            android:text="@string/dialog_color_hint_deep"/>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_select_alpha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/public_list_margin"
-        android:layout_marginRight="@dimen/public_list_margin"
-        android:layout_marginTop="@dimen/public_list_margin"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tv_select_alpha"
-            style="@style/public_style_text_primary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/dialog_select_alpha"/>
-
-        <SeekBar
-            android:id="@+id/sk_select_alpha"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/select_dialog_seekbar_height"
-            />
-    </LinearLayout>
 
     <View
-        android:layout_marginTop="@dimen/public_list_margin"
         android:id="@+id/view_bottom_line"
         style="@style/Line.Horizontal"/>
 
@@ -83,7 +67,7 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/select_left_button_text"
+            android:id="@+id/color_left_button_text"
             style="@style/public_style_text_explain"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -99,7 +83,7 @@
             style="@style/Line.Vertical"/>
 
         <TextView
-            android:id="@+id/select_right_button_text"
+            android:id="@+id/color_right_button_text"
             style="@style/public_style_text_explain"
             android:layout_width="0dp"
             android:layout_height="match_parent"

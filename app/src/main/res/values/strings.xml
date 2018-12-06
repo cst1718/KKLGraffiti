@@ -2,7 +2,7 @@
     <string name="app_name">KKL涂鸦板</string>
 
     <!-- 通用 -->
-    <string name="public_common_title_hint">提示</string>
+    <string name="public_common_title_hint">提 示</string>
     <string name="public_common_sure">确定</string>
     <string name="public_common_cancel">取消</string>
     <string name="public_common_yes">是</string>
@@ -25,5 +25,8 @@
     <string name="dialog_select_size">画笔粗细 %s</string>
     <string name="dialog_select_eraser_size">橡皮擦粗细 %s</string>
     <string name="dialog_select_alpha">画笔透明度 %s</string>
+    <string name="dialog_color_title">颜色调整</string>
+    <string name="dialog_color_hint_low">浅</string>
+    <string name="dialog_color_hint_deep">深</string>
 
 </resources>

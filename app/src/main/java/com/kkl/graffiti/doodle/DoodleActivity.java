@@ -26,6 +26,7 @@ import com.kkl.graffiti.common.util.FileUtils;
 import com.kkl.graffiti.common.util.ResourceUtils;
 import com.kkl.graffiti.doodle.detection.GpuImage;
 import com.kkl.graffiti.doodle.detection.IDetectionResult;
+import com.kkl.graffiti.doodle.dialog.ColorPickerDialog;
 import com.kkl.graffiti.doodle.dialog.NormalAlertDialog;
 import com.kkl.graffiti.doodle.dialog.SelectSizeAndAlphaDialog;
 import com.kkl.graffiti.doodle.drawType.BaseDrawType;
@@ -323,6 +324,14 @@ public class DoodleActivity extends BaseActivity
                 break;
             case R.id.iv_doodle_color:// 颜色
                 Toast.makeText(this, "颜色选择器", Toast.LENGTH_SHORT).show();
+                ColorPickerDialog dialog1 = new ColorPickerDialog();
+                dialog1.setOnButtonClickCallback(new ColorPickerDialog.onColorProgressResult() {
+                    @Override
+                    public void onColorResult(int color) {
+                        mDoodleView.setColor(color);
+                    }
+                });
+                dialog1.show(getSupportFragmentManager(),"ColorPickerDialog");
                 break;
         }
     }
