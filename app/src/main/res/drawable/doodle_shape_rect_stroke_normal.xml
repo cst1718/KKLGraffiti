@@ -5,7 +5,7 @@
     <solid android:color="#ffffff" />
  <!-- 定义填充的颜色值 -->
     <stroke
-        android:width="0.5dp"
+        android:width="@dimen/public_common_border"
         android:color="@color/doodle_btn_border" />
 
     <corners android:radius="3dp" />

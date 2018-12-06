@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout style="@style/List.Primary"
+                xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/tv_listpopwindow_item"
+        style="@style/public_style_text_primary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+
+    <ImageView
+        android:id="@+id/iv_listpopwindow_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_public_close_bg"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <View
+        android:id="@+id/view_line"
+        style="@style/Line.Horizontal"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

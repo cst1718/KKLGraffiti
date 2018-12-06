@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_dialog_bg_normal"
+    android:orientation="vertical"
+    >
+
+    <com.kkl.graffiti.doodle.view.SimpleCurveView
+        android:id="@+id/cv_select_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="20dp"/>
+
+    <SeekBar
+        android:id="@+id/sk_select_size"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:max="100"/>
+
+    <SeekBar
+        android:id="@+id/sk_select_alpha"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:max="255"/>
+
+    <LinearLayout
+        android:id="@+id/ll_bottom_btn"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/public_common_title_height"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/select_left_button_text"
+            style="@style/public_style_text_explain"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_global_split_left"
+            android:enabled="true"
+            android:gravity="center"
+            android:text="@string/public_common_cancel"
+            />
+
+        <View
+            android:id="@+id/dialog_btn_devider"
+            style="@style/Line.Vertical"/>
+
+        <TextView
+            android:id="@+id/select_right_button_text"
+            style="@style/public_style_text_explain"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_global_split_right"
+            android:enabled="true"
+            android:gravity="center"
+            android:text="@string/public_common_sure"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">涂鸦板</string>
+
+    <!-- 通用 -->
+    <string name="public_common_title_hint">提示</string>
+    <string name="public_common_sure">确定</string>
+    <string name="public_common_cancel">取消</string>
+    <string name="public_common_yes">是</string>
+    <string name="public_common_no">否</string>
+
+    <!-- 首页 -->
+    <string name="home_tab_photo_title">我的作品</string>
+    <string name="home_tab_about_title">关于</string>
+    <array name="home_tab_select">
+        <item>相册</item>
+        <item>相机</item>
+    </array>
+
+    <!-- 涂鸦 -->
+    <string name="dialog_save_doodle_msg">是否保存到我的作品中？</string>
+    <string name="dialog_detection_doodle_msg">是否转换成素描图？</string>
 </resources>

@@ -12,9 +12,33 @@
      reported by the hardware. -->
     <dimen name="androids_api27_config_minScalingSpan">27mm</dimen>
 
+    <!-- 字号 -->
+    <dimen name="public_text_size_title">17.3sp</dimen>         <!-- 文字标题 / 51.84px-->
+    <dimen name="public_text_size_primary">15.4sp</dimen>       <!-- 正文/按钮 / 46.08px -->
+    <dimen name="public_text_size_secondary">12.5sp</dimen>     <!-- 备注/小按钮 / 37.44px -->
+    <dimen name="public_text_size_support">13.4sp</dimen>       <!-- 补充 / 40.32px -->
+    <dimen name="public_text_size_small">9.6sp</dimen>          <!-- 设备状态/场景/统计 /28.8px  -->
 
-    <dimen name="doodle_title_bar_height">50dp</dimen>
+    <!-- 通用 -->
+    <dimen name="public_list_subtitle_marginTop">3dp</dimen>    <!-- 通用的条目有副标题的marginTop -->
+    <dimen name="public_common_border">2px</dimen>              <!-- 2px / shape背景边框描边-->
+    <dimen name="public_common_title_height">45dp</dimen>       <!-- 页面统一title的高度 -->
+    <dimen name="public_list_margin">14.4dp</dimen>             <!-- 列表两边边距43.2px / 3 -->
+    <dimen name="public_common_line">1px</dimen>                 <!--分割线-->
+    <dimen name="public_round_radius_20px">6.7dp</dimen>        <!-- 圆角半径 /20px  -->
+
+    <!-- 页面列表3种高度和边距 -->
+    <dimen name="public_list_primary_height">48dp</dimen>       <!-- 144px / 3 -->
+    <dimen name="public_list_secondary_height">91.4dp</dimen>   <!-- 274px / 3 -->
+    <dimen name="public_list_third_height">67.3dp</dimen>       <!-- 202px / 3 -->
+
+    <!--我的作品-->
+    <dimen name="myphoto_show_padding">3dp</dimen>
+
+    <!-- 截图 -->
     <dimen name="doodle_btn_pen_size">32dp</dimen>
-    <dimen name="doodle_btn_shape_size">30dp</dimen>
     <dimen name="doodle_btn_margin">20dp</dimen>
+    <dimen name="doodle_paint_size">7dp</dimen>
+
+
 </resources>

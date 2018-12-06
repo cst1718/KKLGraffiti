@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="transparent">#00FFFFFF</color>
+
+    <color name="public_color_white">#FFFFFF</color>                <!-- 纯白颜色 -->
+    <color name="public_color_black">#000000</color>                <!-- 纯黑颜色 -->
+    <color name="public_color_bg_normal">#F8F8F8</color>            <!-- 默认背景底色(灰) -->
+    <color name="public_color_bg_protrude">#FFFFFF</color>          <!-- 一级级别背景色(白) -->
+    <color name="public_color_text_alert">#FF3030</color>           <!-- 警告颜色(红) -->
+    <color name="public_color_text_primary">#5A5A5A</color>         <!-- 标题/正文/名目主要颜色 -->
+    <color name="public_color_text_explain">#9B9B9B</color>         <!-- 一般文字/菜单按钮二级/设备状态/按钮描边 -->
+    <color name="public_color_text_offline">#BFBFBF</color>         <!-- 不可用/置灰 -->
+    <color name="public_color_line">#EFEFEF</color>                 <!-- 分割线 -->
+
+    <color name="public_color_black_transparent_6">#0F000000</color>            <!-- 黑色6%透明 -->
+
     <color name="doodle_btn_pressed_color">#ffffd943</color>
     <color name="doodle_btn_border">#88cccccc</color>
 </resources>

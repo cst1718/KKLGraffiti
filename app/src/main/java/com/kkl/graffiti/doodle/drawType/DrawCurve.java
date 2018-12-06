@@ -4,30 +4,40 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
 
+import com.kkl.graffiti.doodle.bean.CurDrawBean;
+
 /**
  * @author cst1718 on 2018/11/27 16:33
  * @explain 曲线, 自由画
  */
 public class DrawCurve extends BaseDrawType {
 
-    private Path  mPath;
     private float mLastX;
     private float mLastY;
 
-    public DrawCurve(float x, float y) {
-        this.mPath = new Path();
+    public DrawCurve(float x, float y, CurDrawBean info) {
+        mPath = new Path();
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);//锯齿
+        mPaint.setDither(true);//抖动
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeJoin(Paint.Join.ROUND);// 转弯连接处圆???
+        mPaint.setStrokeCap(Paint.Cap.ROUND);// 起点和终点为半圆
+        mPaint.setXfermode(info.mode);// 必须设置mode
+
+        // 每次的大小颜色和透明度,注意颜色和透明度设置顺序
+        mPaint.setColor(info.color);
+        mPaint.setAlpha(info.alpha);
+        mPaint.setStrokeWidth(info.size);
+
         mPath.moveTo(x, y);
-        //        path.lineTo(x, y);
         mLastX = x;
         mLastY = y;
     }
 
     @Override
-    public void draw(Canvas canvas, Paint paint) {
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeJoin(Paint.Join.ROUND);// 转弯连接处圆???
-        paint.setStrokeCap(Paint.Cap.ROUND);// 起点和终点为半圆
-        canvas.drawPath(mPath, paint);
+    public void draw(Canvas canvas) {
+        canvas.drawPath(mPath, mPaint);
     }
 
     @Override
