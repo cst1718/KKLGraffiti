@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">涂鸦板</string>
+    <string name="app_name">KKL涂鸦板</string>
 
     <!-- 通用 -->
     <string name="public_common_title_hint">提示</string>
@@ -14,9 +14,16 @@
     <array name="home_tab_select">
         <item>相册</item>
         <item>相机</item>
+        <item>新建画布</item>
     </array>
 
     <!-- 涂鸦 -->
     <string name="dialog_save_doodle_msg">是否保存到我的作品中？</string>
     <string name="dialog_detection_doodle_msg">是否转换成素描图？</string>
+    <string name="dialog_select_title_size">画笔调整</string>
+    <string name="dialog_select_title_eraser">橡皮擦调整</string>
+    <string name="dialog_select_size">画笔粗细 %s</string>
+    <string name="dialog_select_eraser_size">橡皮擦粗细 %s</string>
+    <string name="dialog_select_alpha">画笔透明度 %s</string>
+
 </resources>

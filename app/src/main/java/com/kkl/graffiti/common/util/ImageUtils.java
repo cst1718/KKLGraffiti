@@ -22,6 +22,7 @@ import android.net.Uri;
 import android.provider.MediaStore.Images;
 import android.provider.MediaStore.Video;
 import android.provider.MediaStore.Video.Thumbnails;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -186,7 +187,7 @@ public class ImageUtils {
      * @param context
      * @return
      */
-    public static final Bitmap createBitmapFromPath(String path, Context context) {
+    public static final Bitmap createBitmapFromPath(@NonNull String path, Context context) {
         return createBitmapFromPath(path, Util.getScreenWidth(context), Util.getScreenHeight(context));
     }
 

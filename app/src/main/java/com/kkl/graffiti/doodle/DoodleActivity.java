@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MotionEvent;
@@ -40,8 +42,12 @@ import java.io.FileOutputStream;
 public class DoodleActivity extends BaseActivity
         implements View.OnClickListener, View.OnTouchListener, IDetectionResult {
 
+    public enum Type {
+        NORMAL, NOEDGE, NEW
+    }
+
     private static final String PATH = "path";
-    private static final String EDGE = "edge";
+    private static final String TYPE = "type";
 
     private DoodleActivity mActivity = DoodleActivity.this;
 
@@ -57,17 +63,17 @@ public class DoodleActivity extends BaseActivity
     private ImageView        mIvSize;
     private String           mSelectPath;//相机或者相册得到的图片的绝对路径
 
-    private boolean        mIsEdge;// 是否需要边缘检测
     private boolean        mFinish;// 是否完成可以保存
     private ProgressDialog mProgressDlg;
     private Bitmap         mNormal;
+    private Type           mType;
 
     /** 从我的作品中进来的不做边缘检测 */
-    public static Intent getActivityIntent(Activity activity, String path, boolean edge) {
+    public static Intent getActivityIntent(Activity activity, String path, Type type) {
         Intent intent = new Intent();
         intent.setClass(activity, DoodleActivity.class);
         intent.putExtra(PATH, path);
-        intent.putExtra(EDGE, edge);
+        intent.putExtra(TYPE, type.ordinal());
         return intent;
     }
 
@@ -87,8 +93,11 @@ public class DoodleActivity extends BaseActivity
     private boolean getIntentData() {
         if (getIntent() != null) {
             mSelectPath = getIntent().getStringExtra(PATH);
-            mIsEdge = getIntent().getBooleanExtra(EDGE, false);
-            return !TextUtils.isEmpty(mSelectPath);
+            mType = Type.values()[getIntent().getIntExtra(TYPE, 1)];
+            if (TextUtils.isEmpty(mSelectPath)) {
+                mType = Type.NEW;
+            }
+            return true;
         }
         return false;
     }
@@ -125,12 +134,17 @@ public class DoodleActivity extends BaseActivity
         mIvColor.setOnClickListener(this);
         mIvSize.setOnClickListener(this);
 
+
         // 初始化视图完成之后再设置,不然设置图片并没有重新绘制测量高度不对
         mCropView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 mCropView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                mCropView.setBmpPath(mSelectPath, mActivity);
+                if (mType == Type.NEW) {// 新建画布直接进涂鸦板
+                    photoResult(null);
+                } else {
+                    mCropView.setBmpPath(mSelectPath, mActivity);
+                }
             }
         });
     }
@@ -145,6 +159,9 @@ public class DoodleActivity extends BaseActivity
                 switch (buttonType) {
                     case rightButton:
                         detectionBitmap();
+                        break;
+                    case leftButton:
+                        photoResult(null);
                         break;
                 }
             }
@@ -199,19 +216,26 @@ public class DoodleActivity extends BaseActivity
             fos = new FileOutputStream(file);
             mDoodleView.getEndMap().compress(Bitmap.CompressFormat.JPEG, 100, fos);
             fos.flush();
-            Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             CloseableUtils.close(fos);
         }
-        new SingleMediaScanner(mActivity, file, new SingleMediaScanner.ScanListener() {
+        mProgressDlg.dismiss();
+        goBackMainActivity();
+        MediaScannerConnection.scanFile(this, new String[]{file.getAbsolutePath()}, null, null);
+        mProgressDlg.dismiss();
+        Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show();
+        goBackMainActivity();
+
+        // 魅族不回调
+        /*new SingleMediaScanner(mActivity, file, new SingleMediaScanner.ScanListener() {
             @Override
             public void onScanFinish() {
                 mProgressDlg.dismiss();
                 goBackMainActivity();
             }
-        });
+        });*/
     }
 
     public void goBackMainActivity() {
@@ -222,7 +246,13 @@ public class DoodleActivity extends BaseActivity
     @Override
     public void photoResult(final Bitmap bitmap) {
         if (mNormal == null) {
-            mNormal = mCropView.getCroppedImage();// 先初始化转换默认图片
+            if (mType == Type.NEW) {// 新建画布没有背景图,创建一个纯色的背景图
+                mNormal = Bitmap.createBitmap(mCropView.getWidth(), mCropView.getHeight(), Bitmap.Config.ARGB_8888);
+                mNormal.eraseColor(Color.WHITE);
+                mFinish = true;
+            } else {
+                mNormal = mCropView.getCroppedImage();// 先初始化转换默认图片
+            }
         }
         mDoodleView.post(new Runnable() {
             @Override
@@ -259,10 +289,10 @@ public class DoodleActivity extends BaseActivity
                     showSavePhotoDialog();
                 } else {
                     mFinish = true;
-                    if (!mIsEdge) {// 不边缘转换
-                        photoResult(null);
-                    } else {
+                    if (mType == Type.NORMAL) {
                         showChangeBitmapDialog();
+                    } else {// 新建,不边缘转换
+                        photoResult(null);
                     }
                 }
 
@@ -281,7 +311,6 @@ public class DoodleActivity extends BaseActivity
                 mIvPain.setSelected(true);
                 break;
             case R.id.iv_doodle_size:// 字号大小
-                Toast.makeText(this, "粗细选择器", Toast.LENGTH_SHORT).show();
                 SelectSizeAndAlphaDialog dialog = SelectSizeAndAlphaDialog.getSizeSelectDialog(mDoodleView.getPaintSize(), mDoodleView.getPaintAlpha(), mIvEraser.isSelected());
                 dialog.setOnButtonClickCallback(new SelectSizeAndAlphaDialog.onProgressResult() {
                     @Override

@@ -25,6 +25,7 @@ import com.kkl.graffiti.home.adapter.MyPhotoAdapter;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import static android.app.Activity.RESULT_OK;
@@ -40,7 +41,7 @@ public class MyPhotoFragment extends BaseFragment {
     private BaseActivity   mActivity;
     private MyPhotoAdapter mAdapter;
     private MyAsyncTask    mAsyncTask;
-    private RecyclerView mRecyclerView;
+    private RecyclerView   mRecyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -67,7 +68,7 @@ public class MyPhotoFragment extends BaseFragment {
     }
 
     private void go2DoodleActivity(String path) {
-        Intent activityIntent = DoodleActivity.getActivityIntent(mActivity, path, false);
+        Intent activityIntent = DoodleActivity.getActivityIntent(mActivity, path, DoodleActivity.Type.NOEDGE);
         startActivityForResult(activityIntent, REQ_DOODLE);
     }
 
@@ -88,7 +89,8 @@ public class MyPhotoFragment extends BaseFragment {
 
         @Override
         protected ArrayList<HashMap<String, String>> doInBackground(Void... voids) {
-            ArrayList<HashMap<String, String>> list = queryThumb();
+            //            ArrayList<HashMap<String, String>> list = queryThumb();
+            ArrayList<HashMap<String, String>> list = getDirList();
             if (list == null || list.size() == 0) {
                 return null;
             }
@@ -102,7 +104,26 @@ public class MyPhotoFragment extends BaseFragment {
         }
     }
 
-    /** 查询缩略图 */
+    private ArrayList<HashMap<String, String>> getDirList() {
+        File[] files = new File(AppConfig.getSaveDirPath()).listFiles();
+        if (files == null || files.length == 0) {
+            return null;
+        }
+        //每张图片的id值，原地址值，缓存地址值为一个map
+        ArrayList<HashMap<String, String>> list = new ArrayList<>(files.length);
+        Arrays.sort(files);// 数组只有升序,此时是按照文件名从小到大
+        for (File file : files) {
+            if (file.isDirectory() || !file.getName().endsWith("jpg") || file.length() < 100) {
+                continue;
+            }
+            HashMap<String, String> value = new HashMap<>(3);
+            value.put(MediaStore.Images.Media.DATA, file.getAbsolutePath());
+            list.add(0, value);
+        }
+        return list;
+    }
+
+    /** 查询缩略图,某些机型插入数据库无回调? */
     private ArrayList<HashMap<String, String>> queryThumb() {
         boolean isFirst = true;
         StringBuilder sb = new StringBuilder();
@@ -112,7 +133,7 @@ public class MyPhotoFragment extends BaseFragment {
         }
         ArrayList<String> selectArgs = new ArrayList<>(files.length);
         for (File file : files) {
-            if (file.isDirectory() || !file.getName().endsWith("jpg")) {
+            if (file.isDirectory() || !file.getName().endsWith("jpg") || file.length() < 100) {
                 continue;
             }
             if (!isFirst) {
@@ -143,7 +164,7 @@ public class MyPhotoFragment extends BaseFragment {
             int _idColumn = cursor.getColumnIndex(MediaStore.Images.Media._ID);
             int _dataColumn = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
             do {
-                HashMap<String, String> value = new HashMap<>(2);
+                HashMap<String, String> value = new HashMap<>(3);
                 value.put(MediaStore.Images.Media._ID, cursor.getInt(_idColumn) + "");
                 value.put(MediaStore.Images.Media.DATA, cursor.getString(_dataColumn));
                 list.add(value);

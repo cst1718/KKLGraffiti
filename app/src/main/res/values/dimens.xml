@@ -40,5 +40,7 @@
     <dimen name="doodle_btn_margin">20dp</dimen>
     <dimen name="doodle_paint_size">7dp</dimen>
 
+    <!-- 选择粗细弹窗 -->
+    <dimen name="select_dialog_seekbar_height">30dp</dimen>
 
 </resources>

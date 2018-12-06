@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -16,6 +17,7 @@ import android.view.View;
 public class SimpleCurveView extends View {
 
     private Paint mPaint;
+    private Paint mPaintBack;
     private Path  mPath;
 
     public SimpleCurveView(Context context) {
@@ -43,6 +45,16 @@ public class SimpleCurveView extends View {
         mPaint.setStrokeJoin(Paint.Join.ROUND);// 转弯连接处圆???
         mPaint.setStrokeCap(Paint.Cap.ROUND);// 起点和终点为半圆
 
+        mPaintBack = new Paint();
+        mPaintBack.setColor(Color.BLACK);
+        mPaintBack.setAntiAlias(true);//锯齿
+        mPaintBack.setDither(true);//抖动
+        mPaintBack.setStyle(Paint.Style.STROKE);
+        mPaintBack.setStrokeJoin(Paint.Join.ROUND);// 转弯连接处圆???
+        mPaintBack.setStrokeCap(Paint.Cap.ROUND);// 起点和终点为半圆
+        mPaintBack.setColor(0Xffffd943);
+        mPaintBack.setStrokeWidth(110);
+
         mPath = new Path();
     }
 
@@ -54,15 +66,16 @@ public class SimpleCurveView extends View {
 
     /** 透明度，0透明，255不透明 */
     public void setLineAlpha(int alpha) {
+        Log.e("1718", "alpha == " + alpha);
         mPaint.setAlpha(alpha);
         invalidate();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawColor(Color.BLUE);
-        mPath.moveTo(30, getHeight() / 2);
-        mPath.cubicTo(getWidth() / 3, 0, getWidth() - getWidth() / 3, getHeight(), getWidth() - 30, getHeight() / 2);
+        mPath.moveTo(50, getHeight() / 2);
+        mPath.cubicTo(getWidth() / 3, -50, getWidth() - getWidth() / 3, getHeight() + 50, getWidth() - 50, getHeight() / 2);
+        canvas.drawPath(mPath, mPaintBack);
         canvas.drawPath(mPath, mPaint);
     }
 }

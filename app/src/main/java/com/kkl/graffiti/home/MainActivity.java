@@ -53,25 +53,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         initView();
 
         mCameraTempPath = AppConfig.getTempDirPath(this) + File.separator + Constants.TEMP_JPG_NAME;
-        /*findViewById(R.id.btn_photo).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (android.os.Build.VERSION.SDK_INT >= 23) {
-                    int checkSelfPermission = ContextCompat.checkSelfPermission(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                    if (checkSelfPermission != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(mActivity, new String[]{
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_LOOK);
-                        return;
-                    }
-                }
-                go2SystemPictures();
-            }
-        });
-        findViewById(R.id.btn_carmen).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });*/
     }
 
     private void initView() {
@@ -114,6 +95,10 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                             }
                         }
                         break;
+                    case 2:// 新建
+                        go2DoodleActivity(null);
+                        break;
+
                 }
                 dialog.dismiss();
             }
@@ -136,7 +121,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     }
 
     private void go2DoodleActivity(String path) {
-        Intent activityIntent = DoodleActivity.getActivityIntent(this, path, true);
+        Intent activityIntent = DoodleActivity.getActivityIntent(this, path, DoodleActivity.Type.NORMAL);
         startActivityForResult(activityIntent, REQ_DOODLE);
     }
 
@@ -229,6 +214,13 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                     break;
             }
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        //不保存之前的fragment的状态
+        //        super.onSaveInstanceState(outState);
+//        super.onSaveInstanceState(outState);
     }
 
     // 此方法是为了防止三星手机调用相机导致activity销毁重启,同时

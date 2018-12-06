@@ -88,7 +88,7 @@ public class SimpleDoodleView extends View {
         mCurPenBean = new CurDrawBean();
         mCurPenBean.alpha = 255;
         mCurPenBean.color = Color.BLACK;
-        mCurPenBean.size = 60;
+        mCurPenBean.size = 25;
         mCurEraserBean = new CurDrawBean();
         mCurEraserBean.alpha = 0;
         mCurEraserBean.size = 70;
@@ -124,8 +124,8 @@ public class SimpleDoodleView extends View {
             @Override
             public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) { // 滑动中
                 mCurDraw.move(e2.getX(), e2.getY());
-                if (mIsAlpha) {
-                    mCurDraw.draw(mBufferAlphaCanvas);// 透明度的画在另外一张图缓冲画上
+                if (mIsAlpha && mCurType == BaseDrawType.Type.Curve) {// 透明度的画在另外一张图缓冲画上
+                    mCurDraw.draw(mBufferAlphaCanvas);
                 } else {
                     mCurDraw.draw(mBufferCanvas);// 缓冲画轨迹
                 }
@@ -135,17 +135,20 @@ public class SimpleDoodleView extends View {
 
             @Override
             public void onScrollEnd(MotionEvent e) { // 滑动结束
-                if (mIsAlpha) {// 透明度缓冲画布清空,每次只画一次,并且要把轨迹中的画笔模式切换回来,不然回退到这一轨迹会把效果不一致
-                    mCurDraw.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
-                    mBufferAlphaBitmap.eraseColor(Color.TRANSPARENT);
-                }
                 // 此次操作轨迹加入集合
                 mDrawList.add(mCurDraw);
-                // 再在缓冲画上把此次轨迹完整画出
-                mCurDraw.draw(mBufferCanvas);
-                // 置空,onDraw中判断空的话不画缓冲透明
-                mCurDraw = null;
-                invalidate();
+
+                if (mIsAlpha && mCurType == BaseDrawType.Type.Curve) {// 透明度缓冲画布清空,每次只画一次,并且要把轨迹中的画笔模式切换回来,不然回退到这一轨迹会把效果不一致
+                    mCurDraw.mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
+                    mBufferAlphaBitmap.eraseColor(Color.TRANSPARENT);
+                    // 再在缓冲画上把此次轨迹完整画出
+                    mCurDraw.draw(mBufferCanvas);
+                    // 置空,onDraw中判断空的话不画缓冲透明
+                    mCurDraw = null;
+                    invalidate();
+                } else {
+                    mCurDraw = null;
+                }
             }
         });
     }
@@ -172,6 +175,9 @@ public class SimpleDoodleView extends View {
 
     /** 透明度，0透明，255不透明 */
     public void setLineAlpha(int alpha) {
+        if (mCurType == BaseDrawType.Type.Eraser) {
+            return;
+        }
         mCurPenBean.alpha = alpha;
         mIsAlpha = alpha != 255;
     }
@@ -190,6 +196,9 @@ public class SimpleDoodleView extends View {
     }
 
     public int getPaintSize() {
+        if (mCurType == BaseDrawType.Type.Eraser) {
+            return (int) mCurEraserBean.size;
+        }
         return (int) mCurPenBean.size;
     }
 
@@ -340,7 +349,7 @@ public class SimpleDoodleView extends View {
             canvas.drawBitmap(mBufferBitmap, null, mBitMapRectF, mPaint);
         }
         // 判断是否还有缓冲透明画,并且是在移动画中,有的话画上去
-        if (mIsAlpha && mCurDraw != null) {
+        if (mIsAlpha && mCurDraw != null && mBufferAlphaBitmap != null) {
             canvas.drawBitmap(mBufferAlphaBitmap, null, mBitMapRectF, mPaint);
         }
     }

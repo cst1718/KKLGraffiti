@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.kkl.graffiti.BaseAlertDialogFragment;
 import com.kkl.graffiti.R;
+import com.kkl.graffiti.common.util.ResourceUtils;
 import com.kkl.graffiti.doodle.view.SimpleCurveView;
 
 /**
@@ -25,6 +27,8 @@ public class SelectSizeAndAlphaDialog extends BaseAlertDialogFragment
     private SimpleCurveView  mCurveView;
     private onProgressResult mCallback;
     private boolean          mIsEraser;//橡皮擦设置
+    private TextView         mTvSize;
+    private TextView         mTvAlpha;
 
     public static SelectSizeAndAlphaDialog getSizeSelectDialog(int size, int alpha, boolean eraser) {
         SelectSizeAndAlphaDialog dialog = new SelectSizeAndAlphaDialog();
@@ -62,15 +66,29 @@ public class SelectSizeAndAlphaDialog extends BaseAlertDialogFragment
         mCurveView = view.findViewById(R.id.cv_select_view);
         mSizeSeekbar = view.findViewById(R.id.sk_select_size);
         mAlaphaSeekbar = view.findViewById(R.id.sk_select_alpha);
+        TextView tvTitle = view.findViewById(R.id.dialog_select_title);
+        mTvSize = view.findViewById(R.id.tv_select_size);
+        mTvAlpha = view.findViewById(R.id.tv_select_alpha);
+
         mSizeSeekbar.setOnSeekBarChangeListener(this);
         mAlaphaSeekbar.setOnSeekBarChangeListener(this);
-        mSizeSeekbar.setProgress(getArguments().getInt(SIEZ));
-        mAlaphaSeekbar.setProgress(Math.abs(getArguments().getInt(ALPHA) - 255));
         view.findViewById(R.id.select_right_button_text).setOnClickListener(this);
+        view.findViewById(R.id.select_left_button_text).setOnClickListener(this);
+
+        mSizeSeekbar.setMax(100);
+        mAlaphaSeekbar.setMax(255);
+        int size = getArguments().getInt(SIEZ);
+        int alpha = Math.abs(getArguments().getInt(ALPHA) - 255);
+        mSizeSeekbar.setProgress(size);
+        mAlaphaSeekbar.setProgress(alpha);
+        mTvSize.setText(ResourceUtils.getResourcesString(R.string.dialog_select_size, size));
+        mTvAlpha.setText(ResourceUtils.getResourcesString(R.string.dialog_select_alpha, (alpha * 100 / 255) + "%"));
+
         mIsEraser = getArguments().getBoolean(ERASER);
         if (mIsEraser) {
-            mAlaphaSeekbar.setVisibility(View.GONE);
-            mCurveView.setLineAlpha(255);
+            tvTitle.setText(ResourceUtils.getResourcesString(R.string.dialog_select_title_eraser));
+            view.findViewById(R.id.ll_select_alpha).setVisibility(View.GONE);
+            mSizeSeekbar.setMax(150);
         }
     }
 
@@ -78,8 +96,10 @@ public class SelectSizeAndAlphaDialog extends BaseAlertDialogFragment
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         if (seekBar == mAlaphaSeekbar) {
             mCurveView.setLineAlpha(Math.abs(progress - 255));
+            mTvAlpha.setText(ResourceUtils.getResourcesString(R.string.dialog_select_alpha, (progress * 100 / 255) + "%"));
         } else if (seekBar == mSizeSeekbar) {
             mCurveView.setLineWidth(progress);
+            mTvSize.setText(ResourceUtils.getResourcesString(R.string.dialog_select_size, progress));
         }
     }
 

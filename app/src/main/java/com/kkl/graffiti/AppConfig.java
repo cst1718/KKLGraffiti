@@ -12,7 +12,13 @@ import java.io.File;
 public class AppConfig {
 
     public static String getTempDirPath(Activity activity) {
-        return activity.getCacheDir().getAbsolutePath();
+        String cachePath;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
+            cachePath = activity.getExternalCacheDir().getAbsolutePath();
+        } else {
+            cachePath = activity.getCacheDir().getAbsolutePath();
+        }
+        return cachePath;
     }
 
     public static String getSaveDirPath() {
