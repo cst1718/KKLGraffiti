@@ -81,6 +81,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                             } else {
                                 PermissionUtils.reqPermissions(PERMISSION_LOOK, mActivity, strings);
                             }
+                        } else {
+                            go2SystemPictures();
                         }
                         break;
                     case 1:
@@ -93,6 +95,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                             } else {
                                 PermissionUtils.reqPermissions(PERMISSION_CAMERA, mActivity, strings);
                             }
+                        } else {
+                            go2SystemCamera();
                         }
                         break;
                     case 2:// 新建
@@ -214,13 +218,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                     break;
             }
         }
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        //不保存之前的fragment的状态
-        //        super.onSaveInstanceState(outState);
-//        super.onSaveInstanceState(outState);
     }
 
     // 此方法是为了防止三星手机调用相机导致activity销毁重启,同时

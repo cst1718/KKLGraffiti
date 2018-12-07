@@ -27,5 +27,9 @@
         <external-cache-path
             name="camera_temp.jpg"
             path=""/>
+        <cache-path
+            name="camera_temp.jpg"
+            path=""
+            />
     </paths>
 </resources> 
