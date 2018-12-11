@@ -27,9 +27,10 @@
         <external-cache-path
             name="camera_temp.jpg"
             path=""/>
-        <cache-path
+        <!-- 如果没有外置卡用了内置卡,三星上两个同name会崩溃-->
+        <!--<cache-path
             name="camera_temp.jpg"
             path=""
-            />
+            />-->
     </paths>
 </resources> 

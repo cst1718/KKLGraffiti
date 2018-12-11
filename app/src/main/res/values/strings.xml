@@ -29,4 +29,9 @@
     <string name="dialog_color_hint_low">浅</string>
     <string name="dialog_color_hint_deep">深</string>
 
+    <!--关于我们-->
+    <string name="about_item_clean">清理缓存</string>
+    <string name="about_dialog_clean">是否清除我的作品?</string>
+    <string name="about_item_version">当前版本号</string>
+
 </resources>

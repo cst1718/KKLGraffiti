@@ -1,36 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
 
-    <RelativeLayout
-        android:id="@+id/rl_main_title"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/public_common_title_height"
+    <com.kkl.graffiti.home.view.AboutView
         android:background="@color/public_color_bg_protrude"
-        >
+        android:id="@+id/av_about_clean"
+        style="@style/List.Primary"
+        android:layout_marginTop="@dimen/public_common_title_margin"
+        app:about_arrow="true"
+        app:about_bottom_line="true"
+        app:about_left_text="@string/about_item_clean"
+        />
 
-        <ImageView
-            android:id="@+id/iv_main_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:src="@drawable/btn_titlebar_back_black"
-            android:visibility="gone"
-            />
+    <com.kkl.graffiti.home.view.AboutView
+        android:background="@color/public_color_bg_protrude"
+        android:id="@+id/av_about_version"
+        style="@style/List.Primary"
+        app:about_arrow="false"
+        app:about_left_text="@string/about_item_version"
+        />
 
-        <TextView
-            style="@style/public_style_text_primary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="关于我们"/>
-
-        <View
-            style="@style/Line.Horizontal"
-            android:layout_alignParentBottom="true"/>
-    </RelativeLayout>
-
-</RelativeLayout>
+</LinearLayout>

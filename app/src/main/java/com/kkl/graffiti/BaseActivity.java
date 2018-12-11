@@ -17,4 +17,9 @@ public class BaseActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         ResourceUtils.init(this);
     }
+
+    /** 通知当前activity的其他fragment */
+    public void notifyOtherFragment(Object o) {
+
+    }
 }

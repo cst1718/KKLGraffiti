@@ -206,6 +206,10 @@ public class SimpleDoodleView extends View {
         return mCurPenBean.alpha;
     }
 
+    public int getPainColor() {
+        return mCurPenBean.color;
+    }
+
     /**
      * 设置画笔类型
      *

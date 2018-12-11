@@ -26,6 +26,9 @@
     <dimen name="public_list_margin">14.4dp</dimen>             <!-- 列表两边边距43.2px / 3 -->
     <dimen name="public_common_line">1px</dimen>                 <!--分割线-->
     <dimen name="public_round_radius_20px">6.7dp</dimen>        <!-- 圆角半径 /20px  -->
+    <dimen name="public_round_radius_30px">10dp</dimen>         <!-- 圆角半径 /30px  -->
+    <dimen name="public_drawable_margin">5dp</dimen>            <!-- 带图片的文字间距  -->
+    <dimen name="public_common_title_margin">3dp</dimen>        <!-- 标题下方如有间隔  -->
 
     <!-- 页面列表3种高度和边距 -->
     <dimen name="public_list_primary_height">48dp</dimen>       <!-- 144px / 3 -->
@@ -33,7 +36,7 @@
     <dimen name="public_list_third_height">67.3dp</dimen>       <!-- 202px / 3 -->
 
     <!--我的作品-->
-    <dimen name="myphoto_show_padding">3dp</dimen>
+    <dimen name="myphoto_show_padding">@dimen/public_common_title_margin</dimen>
 
     <!-- 截图 -->
     <dimen name="doodle_btn_pen_size">32dp</dimen>

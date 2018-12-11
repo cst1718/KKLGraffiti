@@ -85,4 +85,23 @@
         <item name="android:layout_height">@dimen/public_list_third_height</item>
     </style>
 
+
+    <!-- 关于我们条目样式 -->
+    <style name="about_item_left_style">
+        <item name="android:textColor">@color/public_color_text_primary</item>
+        <item name="android:textSize">@dimen/public_text_size_primary</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+
+    <style name="about_item_right_style">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/public_color_text_explain</item>
+        <item name="android:textSize">@dimen/public_text_size_support</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
 </resources>

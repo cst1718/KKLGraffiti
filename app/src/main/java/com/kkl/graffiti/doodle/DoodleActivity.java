@@ -324,7 +324,7 @@ public class DoodleActivity extends BaseActivity
                 break;
             case R.id.iv_doodle_color:// 颜色
                 Toast.makeText(this, "颜色选择器", Toast.LENGTH_SHORT).show();
-                ColorPickerDialog dialog1 = new ColorPickerDialog();
+                ColorPickerDialog dialog1 = ColorPickerDialog.getColorPickerDialog(mDoodleView.getPainColor());
                 dialog1.setOnButtonClickCallback(new ColorPickerDialog.onColorProgressResult() {
                     @Override
                     public void onColorResult(int color) {

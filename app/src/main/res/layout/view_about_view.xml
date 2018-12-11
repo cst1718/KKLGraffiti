@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_about_left"
+        style="@style/about_item_left_style"
+        />
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:id="@+id/line_about_bottom"
+        style="@style/Line.Horizontal"
+        />
+
+    <View
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/tv_about_right"
+        android:id="@+id/view_round_alert"
+        android:visibility="gone"
+        android:layout_marginRight="@dimen/public_drawable_margin"
+        android:layout_width="@dimen/public_round_radius_20px"
+        android:layout_height="@dimen/public_round_radius_20px"
+        android:background="@drawable/shape_alert_red"/>
+
+    <TextView
+        android:id="@+id/tv_about_right"
+        style="@style/about_item_right_style"
+        android:drawableRight="@drawable/btn_public_arrow_right_hover"
+        />
+
+</merge>

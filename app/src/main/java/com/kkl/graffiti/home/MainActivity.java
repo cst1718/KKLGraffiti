@@ -130,6 +130,15 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     }
 
     @Override
+    public void notifyOtherFragment(Object o) {
+        super.notifyOtherFragment(o);
+        // 关于里面清空了数据
+        if (mPhotoFragmet != null) {
+            mPhotoFragmet.refreshPhoto();
+        }
+    }
+
+    @Override
     public void onClick(View v) {
         if (v.getId() == R.id.tv_main_tab_select) {
             showBottomSelect(v);
