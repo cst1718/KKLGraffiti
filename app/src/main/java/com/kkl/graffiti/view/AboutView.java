@@ -1,4 +1,4 @@
-package com.kkl.graffiti.home.view;
+package com.kkl.graffiti.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -17,10 +17,10 @@ import com.kkl.graffiti.R;
  */
 public class AboutView extends RelativeLayout {
 
-    private TextView mTvLeft;
-    private TextView mTvRight;
-    private View     mLine;
-    private View     mAlert;
+    private TextView  mTvLeft;
+    private TextView  mTvRight;
+    private View      mLine;
+    private View      mAlert;
 
     public AboutView(Context context) {
         super(context);
@@ -51,7 +51,27 @@ public class AboutView extends RelativeLayout {
             showBottomLine(a.getBoolean(R.styleable.AboutView_about_bottom_line, false));
             showAlert(a.getBoolean(R.styleable.AboutView_about_alert, false));
             showArrow(a.getBoolean(R.styleable.AboutView_about_arrow, false));
+            showLeftDraw(a.getResourceId(R.styleable.AboutView_about_left_src,0),
+                         a.getDimension(R.styleable.AboutView_about_left_src_margin,0));
             a.recycle();
+        }
+    }
+
+    public void showLeftDraw(int drawable, float margin) {
+        if (drawable > 0) {
+            mTvLeft.setCompoundDrawablesWithIntrinsicBounds(drawable,0,0,0);
+        }
+        if (margin != 0) {
+            mTvLeft.setCompoundDrawablePadding((int) margin);
+        }
+    }
+
+    public void showRightDraw(int drawable, float margin) {
+        if (drawable > 0) {
+            mTvRight.setCompoundDrawablesWithIntrinsicBounds(0,0,drawable,0);
+        }
+        if (margin != 0) {
+            mTvRight.setCompoundDrawablePadding((int) margin);
         }
     }
 

@@ -12,9 +12,15 @@
     <color name="public_color_text_explain">#9B9B9B</color>         <!-- 一般文字/菜单按钮二级/设备状态/按钮描边 -->
     <color name="public_color_text_offline">#BFBFBF</color>         <!-- 不可用/置灰 -->
     <color name="public_color_line">#EFEFEF</color>                 <!-- 分割线 -->
-
+    <color name="public_color_title_bg">#FFC107</color>
     <color name="public_color_black_transparent_6">#0F000000</color>            <!-- 黑色6%透明 -->
 
-    <color name="doodle_btn_pressed_color">#ffffd943</color>
+
+    <!-- 首页tab -->
+    <color name="main_color_tab_bg">@color/public_color_title_bg</color>
+    <color name="main_tab_line_bg">#2196f3</color>
+
+
+    <color name="doodle_btn_pressed_color">@color/public_color_title_bg</color>
     <color name="doodle_btn_border">#88cccccc</color>
 </resources>

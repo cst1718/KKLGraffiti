@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/public_color_black"
+    >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/show_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+
+    <RelativeLayout
+        android:id="@+id/rl_show_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_common_title_height"
+        android:background="@color/public_color_title_bg"
+        >
+
+        <ImageView
+            android:id="@+id/iv_show_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_titlebar_back_black"
+            />
+
+        <TextView
+            android:id="@+id/tv_show_title"
+            style="@style/public_style_text_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="涂鸦板"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_show_edit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_common_title_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/public_color_title_bg"
+        >
+
+        <TextView
+            android:id="@+id/tv_show_shape"
+            style="@style/public_style_text_primary"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/show_shape"/>
+
+        <TextView
+            android:id="@+id/tv_show_edit"
+            style="@style/public_style_text_primary"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/show_edit"/>
+    </LinearLayout>
+</RelativeLayout>

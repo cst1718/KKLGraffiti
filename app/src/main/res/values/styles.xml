@@ -2,6 +2,7 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">@color/public_color_title_bg</item>
     </style>
 
     <style name="MyDialog" parent="@android:style/Theme.Dialog">

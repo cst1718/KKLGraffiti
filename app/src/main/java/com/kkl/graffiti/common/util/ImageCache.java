@@ -62,6 +62,9 @@ public class ImageCache {
             if (diskLruCache != null && !diskLruCache.isClosed()) {
                 return;
             }
+            if(mDiskCacheDir == null){
+                return;
+            }
             int vc = 0;
             try {
                 PackageManager manager = mContext.getPackageManager();

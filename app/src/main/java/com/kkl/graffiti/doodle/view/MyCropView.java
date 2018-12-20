@@ -12,7 +12,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.widget.ImageView;
+import android.view.View;
 
 import com.kkl.graffiti.common.util.ImageUtils;
 
@@ -27,7 +27,7 @@ import com.kkl.graffiti.common.util.ImageUtils;
  * 2018/11/30
  * 其实只要定义好地图的矩阵位置就好了,这里的画布只是为了拿到截图的图片,所以画布大了也无所谓
  */
-public class MyCropView extends ImageView {
+public class MyCropView extends View {
 
     private static final String TAG = "MyCropView";
 
@@ -228,8 +228,8 @@ public class MyCropView extends ImageView {
 
         mGuidelinePaint = new Paint();// 裁剪框网格的画笔
         mGuidelinePaint.setAntiAlias(true);// 防止边缘的锯齿
-        mGuidelinePaint.setColor(Color.parseColor("#AAFFFFFF"));
-        mGuidelinePaint.setStrokeWidth(1f);
+        mGuidelinePaint.setColor(Color.parseColor("#EFEFEF"));
+        mGuidelinePaint.setStrokeWidth(5f);
 
         mBgPaint = new Paint();// 非选中蒙层画笔
         mBgPaint.setColor(Color.parseColor("#B0000000"));

@@ -2,6 +2,7 @@ package com.kkl.graffiti.common.util;
 
 import android.annotation.SuppressLint;
 import android.content.ContentUris;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -35,6 +36,37 @@ public class UriUtils {
         } else {
             uri = Uri.fromFile(new File(filePath));
         }
+        return uri;
+    }
+
+    /**
+     * 普通7.0以上是通过FileProvider获取,但是在分享图片的时候某些应用程序不认,必须转成MediaStore的content://
+     * content://media/external/images/media/43990
+     * content://com.kkl.graffiti.fileprovider/my_photo/1545284787414.jpg
+     */
+    public static Uri getImageContentUri(Context context, String filePath) {
+        Cursor cursor = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                                                           new String[]{
+                                                                   MediaStore.Images.Media._ID}, MediaStore.Images.Media.DATA + "=? ",
+                                                           new String[]{filePath}, null);
+        Uri uri = null;
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                int id = cursor.getInt(cursor.getColumnIndex(MediaStore.MediaColumns._ID));
+                Uri baseUri = Uri.parse("content://media/external/images/media");
+                uri = Uri.withAppendedPath(baseUri, "" + id);
+            }
+
+            cursor.close();
+        }
+
+        if (uri == null) {
+            ContentValues values = new ContentValues();
+            values.put(MediaStore.Images.Media.DATA, filePath);
+            uri = context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+        }
+
         return uri;
     }
 

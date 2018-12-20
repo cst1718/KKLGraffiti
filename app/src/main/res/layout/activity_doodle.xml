@@ -5,27 +5,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/rl_main_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/public_common_title_height"
         android:background="@color/public_color_bg_protrude"
-        android:gravity="center_vertical">
+        >
 
         <ImageView
             android:id="@+id/iv_doodle_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:src="@drawable/btn_titlebar_back_black"
             />
 
         <TextView
             style="@style/public_style_text_primary"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_centerInParent="true"
             android:text="涂鸦板"/>
+
 
         <TextView
             android:id="@+id/tv_doodle_sure"
@@ -33,9 +34,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:layout_alignParentRight="true"
             android:paddingRight="@dimen/public_list_margin"
             android:text="@string/public_common_sure"/>
-    </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rl_layout"
@@ -51,7 +53,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
-
     </RelativeLayout>
 
     <com.kkl.graffiti.doodle.view.MyCropView
@@ -67,6 +68,7 @@
         style="@style/Line.Horizontal"/>
 
     <LinearLayout
+        android:id="@+id/layout_doodle_edit"
         android:layout_width="match_parent"
         android:layout_height="@dimen/public_common_title_height"
         android:background="@color/public_color_bg_protrude"

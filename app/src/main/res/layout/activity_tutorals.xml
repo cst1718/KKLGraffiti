@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/public_color_bg_protrude"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_common_title_height"
+        android:background="@color/public_color_title_bg"
+        >
+
+        <ImageView
+            android:id="@+id/iv_teach_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_titlebar_back_black"
+            />
+
+        <TextView
+            android:id="@+id/tv_teach_title"
+            style="@style/public_style_text_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="涂鸦板"/>
+    </RelativeLayout>
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/av_teach_mouse"
+        style="@style/List.Third"
+        app:about_bottom_line="true"
+        app:about_left_text="@string/teach_item_mouse"
+        />
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/av_teach_cow"
+        style="@style/List.Third"
+        app:about_bottom_line="true"
+        app:about_left_text="@string/teach_item_cow"
+        />
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/av_teach_panda"
+        style="@style/List.Third"
+        app:about_bottom_line="true"
+        app:about_left_text="@string/teach_item_panda"
+        />
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/av_teach_peiqi"
+        style="@style/List.Third"
+        app:about_bottom_line="false"
+        app:about_left_text="@string/teach_item_peiqi"
+        />
+</LinearLayout>

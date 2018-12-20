@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/public_color_bg_protrude"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="true"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/public_color_title_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/public_list_margin">
+
+        <ImageView
+            android:id="@+id/iv_leftmenu_userlogo"
+            android:layout_width="@dimen/left_menu_icon_width"
+            android:layout_height="@dimen/left_menu_icon_width"
+            android:src="@drawable/chcd_headimage_logged"
+            />
+
+        <TextView
+            android:id="@+id/tv_leftmenu_username"
+            style="@style/public_style_text_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/public_drawable_margin"
+            android:drawableLeft="@drawable/settings_icon_parent"
+            android:drawablePadding="@dimen/public_drawable_margin"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:maxWidth="120dp"
+            android:singleLine="true"
+            android:text="游客"/>
+    </LinearLayout>
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/left_menu_camera"
+        style="@style/List.Primary"
+        app:about_left_src="@drawable/golbal_message_focus"
+        app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
+        app:about_left_text="@string/left_menu_camera"
+        />
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/left_menu_album"
+        style="@style/List.Primary"
+        app:about_left_src="@drawable/golbal_message_focus"
+        app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
+        app:about_left_text="@string/left_menu_album"
+        />
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/left_menu_normal"
+        style="@style/List.Primary"
+        app:about_left_src="@drawable/golbal_message_focus"
+        app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
+        app:about_left_text="@string/left_menu_normal"
+        />
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/left_menu_new"
+        style="@style/List.Primary"
+        app:about_left_src="@drawable/golbal_message_focus"
+        app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
+        app:about_left_text="@string/left_menu_new"
+        />
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/left_menu_powerpoint"
+        style="@style/List.Primary"
+        app:about_left_src="@drawable/golbal_message_focus"
+        app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
+        app:about_left_text="@string/left_menu_powerpoint"
+        />
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/left_menu_tutorials"
+        style="@style/List.Primary"
+        app:about_left_src="@drawable/golbal_message_focus"
+        app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
+        app:about_left_text="@string/left_menu_tutorials"
+        />
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/left_menu_setting"
+        style="@style/List.Primary"
+        app:about_left_src="@drawable/golbal_message_focus"
+        app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
+        app:about_left_text="@string/left_menu_setting"
+        />
+
+</LinearLayout>

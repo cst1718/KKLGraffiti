@@ -1,53 +1,57 @@
-package com.kkl.graffiti.home.fragment;
+package com.kkl.graffiti.setting;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.kkl.graffiti.AppConfig;
 import com.kkl.graffiti.BaseActivity;
 import com.kkl.graffiti.BaseAlertDialogFragment;
-import com.kkl.graffiti.BaseFragment;
 import com.kkl.graffiti.R;
 import com.kkl.graffiti.common.interfaces.IDialogsCallBack;
 import com.kkl.graffiti.common.util.AppUtils;
 import com.kkl.graffiti.common.util.FileUtils;
 import com.kkl.graffiti.common.util.ResourceUtils;
 import com.kkl.graffiti.doodle.dialog.NormalAlertDialog;
-import com.kkl.graffiti.home.view.AboutView;
+import com.kkl.graffiti.view.AboutView;
 
 import java.io.File;
 
 /**
- * @author cst1718 on 2018/12/4 14:02
+ * @author cst1718 on 2018/12/17 13:11
  * @explain
  */
-public class AboutFragment extends BaseFragment implements View.OnClickListener {
+public class SettingActivity extends BaseActivity implements View.OnClickListener {
 
-    private BaseActivity mActivity;
-    private AboutView    mClean;
-    private AboutView    mVersion;
-    private boolean      mCanClean;
-    private boolean      mCanUpdate;
+    private SettingActivity mActivity;
+    private AboutView       mClean;
+    private AboutView       mVersion;
+    private TextView        mTitle;
+    private ImageView       mBack;
+    private boolean         mCanClean;
+    private boolean         mCanUpdate;
 
     private static final float NUM = 1024f;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home_about, container, false);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home_setting);
+        initView();
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mActivity = (BaseActivity) getActivity();
-        mClean = view.findViewById(R.id.av_about_clean);
-        mVersion = view.findViewById(R.id.av_about_version);
+    private void initView() {
+        mActivity = SettingActivity.this;
+        mClean = findViewById(R.id.av_about_clean);
+        mVersion = findViewById(R.id.av_about_version);
+        mTitle = findViewById(R.id.tv_about_title);
+        mBack = findViewById(R.id.iv_about_back);
         mClean.setOnClickListener(this);
         mVersion.setOnClickListener(this);
+        mBack.setOnClickListener(this);
+        mTitle.setText(ResourceUtils.getResourcesString(R.string.about_title));
     }
 
     private String getCacheSize() {
@@ -60,7 +64,7 @@ public class AboutFragment extends BaseFragment implements View.OnClickListener 
                 }
             }
             mCanClean = total != 0;
-            return (float) (Math.round(total / NUM / NUM * 100)) / 100 + "M";
+            return String.format("%.2fMB", total / NUM / NUM);
         }
         return "0M";
     }
@@ -74,18 +78,19 @@ public class AboutFragment extends BaseFragment implements View.OnClickListener 
         NormalAlertDialog dialog = NormalAlertDialog.getNormalAlertDialog(ResourceUtils.getResourcesString(R.string.about_dialog_clean));
         dialog.setOnButtonClickCallback(new IDialogsCallBack() {
             @Override
-            public void DialogsCallBack(ButtonType buttonType, BaseAlertDialogFragment thisDialogs) {
+            public void DialogsCallBack(IDialogsCallBack.ButtonType buttonType, BaseAlertDialogFragment thisDialogs) {
                 thisDialogs.dismiss();
                 switch (buttonType) {
                     case rightButton:
                         FileUtils.delete(AppConfig.getSaveDirPath());
                         mClean.setRightText(getCacheSize());
+                        mCanClean = false;
                         mActivity.notifyOtherFragment(null);
                         break;
                 }
             }
         });
-        dialog.show(getFragmentManager(), "showCleanDialog");
+        dialog.show(getSupportFragmentManager(), "showCleanDialog");
     }
 
     @Override
@@ -108,7 +113,9 @@ public class AboutFragment extends BaseFragment implements View.OnClickListener 
                 if (!mCanUpdate) {
                     return;
                 }
-
+                break;
+            case R.id.iv_about_back:
+                finish();
                 break;
         }
     }

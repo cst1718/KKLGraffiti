@@ -21,6 +21,7 @@ import com.kkl.graffiti.Constants;
 import com.kkl.graffiti.R;
 import com.kkl.graffiti.common.interfaces.OnRecycleViewItemClickListener;
 import com.kkl.graffiti.doodle.DoodleActivity;
+import com.kkl.graffiti.doodle.ShowActivity;
 import com.kkl.graffiti.home.adapter.MyPhotoAdapter;
 
 import java.io.File;
@@ -62,13 +63,19 @@ public class MyPhotoFragment extends BaseFragment {
         mAdapter.setOnRecycleViewItemClickListener(new OnRecycleViewItemClickListener<String>() {
             @Override
             public void onResultCallback(int index, String data, View view) {
-                go2DoodleActivity(data);
+//                go2DoodleActivity(data);
+                go2ShowActivity(index);
             }
         });
     }
 
     private void go2DoodleActivity(String path) {
         Intent activityIntent = DoodleActivity.getActivityIntent(mActivity, path, DoodleActivity.Type.NOEDGE);
+        startActivityForResult(activityIntent, REQ_DOODLE);
+    }
+
+    private void go2ShowActivity(int position) {
+        Intent activityIntent = ShowActivity.getActivityIntent(mActivity, position);
         startActivityForResult(activityIntent, REQ_DOODLE);
     }
 
@@ -123,7 +130,7 @@ public class MyPhotoFragment extends BaseFragment {
         return list;
     }
 
-    /** 查询缩略图,某些机型插入数据库无回调? */
+    /** 查询缩略图,某些机型插入数据库无回调?废弃不用 */
     private ArrayList<HashMap<String, String>> queryThumb() {
         boolean isFirst = true;
         StringBuilder sb = new StringBuilder();

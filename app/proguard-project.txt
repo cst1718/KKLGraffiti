@@ -221,3 +221,8 @@
 -keep class com.squareup.picasso.Picasso { *; }
 -dontwarn com.squareup.okhttp.**
 -dontwarn com.squareup.picasso.**
+
+#------------------------------------------bugfl-----------------------------
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
+-keep class android.support.**{*;}

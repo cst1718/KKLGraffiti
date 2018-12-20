@@ -10,12 +10,7 @@
 
     <!-- 首页 -->
     <string name="home_tab_photo_title">我的作品</string>
-    <string name="home_tab_about_title">关于</string>
-    <array name="home_tab_select">
-        <item>相册</item>
-        <item>相机</item>
-        <item>新建画布</item>
-    </array>
+    <string name="home_tab_piazza_title">广场动态</string>
 
     <!-- 涂鸦 -->
     <string name="dialog_save_doodle_msg">是否保存到我的作品中？</string>
@@ -29,9 +24,33 @@
     <string name="dialog_color_hint_low">浅</string>
     <string name="dialog_color_hint_deep">深</string>
 
-    <!--关于我们-->
+    <!-- 展示页 -->
+    <string name="show_shape">分享</string>
+    <string name="show_edit">编辑</string>
+
+    <!-- 侧滑栏 -->
+    <string name="left_menu_camera">相机</string>
+    <string name="left_menu_album">本地相册</string>
+    <string name="left_menu_normal">默认图像</string>
+    <string name="left_menu_new">空白画板</string>
+    <string name="left_menu_powerpoint">幻灯片</string>
+    <string name="left_menu_tutorials">教程</string>
+    <string name="left_menu_setting">设置</string>
+
+    <!-- 幻灯片 -->
+    <string name="ppt_go_on">继续</string>
+
+    <!-- 关于我们 -->
+    <string name="about_title">设置</string>
     <string name="about_item_clean">清理缓存</string>
     <string name="about_dialog_clean">是否清除我的作品?</string>
     <string name="about_item_version">当前版本号</string>
+
+    <!-- 教程 -->
+    <string name="teach_title">教程</string>
+    <string name="teach_item_mouse">怎么画老鼠</string>
+    <string name="teach_item_cow">怎么画奶牛</string>
+    <string name="teach_item_panda">怎么画熊猫</string>
+    <string name="teach_item_peiqi">怎么画佩奇</string>
 
 </resources>

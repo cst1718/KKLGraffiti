@@ -43,6 +43,9 @@ import java.io.FileOutputStream;
 public class DoodleActivity extends BaseActivity
         implements View.OnClickListener, View.OnTouchListener, IDetectionResult {
 
+    private View mLayoutEdit;
+    private View mLayoutDoodle;
+
     public enum Type {
         NORMAL, NOEDGE, NEW
     }
@@ -84,14 +87,14 @@ public class DoodleActivity extends BaseActivity
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                                   WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_doodle);
-        if (!getIntentData()) {
+        if (!initIntent()) {
             Toast.makeText(this, "图片有误", Toast.LENGTH_SHORT).show();
             finish();
         }
         initView();
     }
 
-    private boolean getIntentData() {
+    private boolean initIntent() {
         if (getIntent() != null) {
             mSelectPath = getIntent().getStringExtra(PATH);
             mType = Type.values()[getIntent().getIntExtra(TYPE, 1)];
@@ -112,6 +115,7 @@ public class DoodleActivity extends BaseActivity
 
         // 涂鸦
         mDoodleView = findViewById(R.id.dv_doodle_doodle);
+        mLayoutDoodle = findViewById(R.id.rl_layout);
 
         // 标题栏
         mIvBack = findViewById(R.id.iv_doodle_back);
@@ -120,6 +124,7 @@ public class DoodleActivity extends BaseActivity
         mTvSure.setOnClickListener(this);
 
         // 画栏
+        mLayoutEdit = findViewById(R.id.layout_doodle_edit);
         mIvLast = findViewById(R.id.iv_doodle_last);
         mIvNormal = findViewById(R.id.iv_doodle_normal);
         mIvEraser = findViewById(R.id.iv_doodle_eraser);
@@ -127,6 +132,7 @@ public class DoodleActivity extends BaseActivity
         mIvColor = findViewById(R.id.iv_doodle_color);
         mIvSize = findViewById(R.id.iv_doodle_size);
         mIvPain.setSelected(true);
+        mLayoutEdit.setVisibility(View.INVISIBLE);
 
         mIvLast.setOnClickListener(this);
         mIvNormal.setOnTouchListener(this);
@@ -223,9 +229,7 @@ public class DoodleActivity extends BaseActivity
             CloseableUtils.close(fos);
         }
         mProgressDlg.dismiss();
-        goBackMainActivity();
         MediaScannerConnection.scanFile(this, new String[]{file.getAbsolutePath()}, null, null);
-        mProgressDlg.dismiss();
         Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show();
         goBackMainActivity();
 
@@ -261,7 +265,8 @@ public class DoodleActivity extends BaseActivity
                 mProgressDlg.cancel();
                 mCropView.setVisibility(View.GONE);
                 mDoodleView.setCanvasBackground(mNormal, bitmap);
-                findViewById(R.id.rl_layout).setVisibility(View.VISIBLE);
+                mLayoutDoodle.setVisibility(View.VISIBLE);
+                mLayoutEdit.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -331,7 +336,7 @@ public class DoodleActivity extends BaseActivity
                         mDoodleView.setColor(color);
                     }
                 });
-                dialog1.show(getSupportFragmentManager(),"ColorPickerDialog");
+                dialog1.show(getSupportFragmentManager(), "ColorPickerDialog");
                 break;
         }
     }
@@ -341,15 +346,26 @@ public class DoodleActivity extends BaseActivity
         if (v.getId() == R.id.iv_doodle_normal) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
+                    mIvNormal.setPressed(true);
                     mDoodleView.showNormalBitmap(true);
                     break;
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_CANCEL:
                 case MotionEvent.ACTION_OUTSIDE:
+                    mIvNormal.setPressed(false);
                     mDoodleView.showNormalBitmap(false);
                     break;
             }
         }
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (mNormal != null) {
+            mNormal.recycle();
+            mNormal = null;
+        }
+        super.onDestroy();
     }
 }

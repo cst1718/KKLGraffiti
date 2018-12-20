@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/public_color_black"
+    >
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/ppt_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_ppt_go_on"
+        style="@style/public_style_text_primary"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_list_primary_height"
+        android:gravity="center"
+        android:text="@string/ppt_go_on"
+        android:background="@drawable/ppt_goon_bg"
+        />
+
+</RelativeLayout>

@@ -9,20 +9,20 @@
         />
 
     <View
-        android:layout_alignParentBottom="true"
         android:id="@+id/line_about_bottom"
         style="@style/Line.Horizontal"
+        android:layout_alignParentBottom="true"
         />
 
     <View
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/tv_about_right"
         android:id="@+id/view_round_alert"
-        android:visibility="gone"
-        android:layout_marginRight="@dimen/public_drawable_margin"
         android:layout_width="@dimen/public_round_radius_20px"
         android:layout_height="@dimen/public_round_radius_20px"
-        android:background="@drawable/shape_alert_red"/>
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/public_drawable_margin"
+        android:layout_toLeftOf="@+id/tv_about_right"
+        android:background="@drawable/shape_alert_red"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/tv_about_right"

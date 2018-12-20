@@ -23,5 +23,7 @@
         <attr name="about_bottom_line" format="boolean"/>
         <attr name="about_alert" format="boolean"/>
         <attr name="about_arrow" format="boolean"/>
+        <attr name="about_left_src" format="reference"/>
+        <attr name="about_left_src_margin" format="dimension"/>
     </declare-styleable>
 </resources>

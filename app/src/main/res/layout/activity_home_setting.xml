@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/public_color_bg_normal"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_about_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_common_title_height"
+        android:background="@color/public_color_title_bg"
+        >
+
+        <ImageView
+            android:id="@+id/iv_about_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_titlebar_back_black"
+            />
+
+        <TextView
+            android:id="@+id/tv_about_title"
+            style="@style/public_style_text_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="涂鸦板"/>
+    </RelativeLayout>
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/av_about_clean"
+        style="@style/List.Primary"
+        android:background="@drawable/selector_bg_white_normal"
+        app:about_arrow="true"
+        app:about_bottom_line="true"
+        app:about_left_text="@string/about_item_clean"
+        />
+
+    <com.kkl.graffiti.view.AboutView
+        android:id="@+id/av_about_version"
+        style="@style/List.Primary"
+        android:background="@drawable/selector_bg_white_normal"
+        app:about_arrow="false"
+        app:about_left_text="@string/about_item_version"
+        />
+
+</LinearLayout>
