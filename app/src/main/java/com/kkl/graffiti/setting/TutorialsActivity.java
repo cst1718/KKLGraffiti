@@ -1,8 +1,6 @@
 package com.kkl.graffiti.setting;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,7 +12,7 @@ import com.kkl.graffiti.view.AboutView;
 
 /**
  * @author cst1718 on 2018/12/18 17:19
- * @explain
+ * @explain 教程列表图
  */
 public class TutorialsActivity extends BaseActivity implements View.OnClickListener {
 
@@ -26,9 +24,12 @@ public class TutorialsActivity extends BaseActivity implements View.OnClickListe
     private ImageView mBack;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tutorals);
+    public int getContentViewLayoutId() {
+        return R.layout.activity_tutorals;
+    }
+
+    @Override
+    public void initViewsAndListeners() {
         initView();
     }
 

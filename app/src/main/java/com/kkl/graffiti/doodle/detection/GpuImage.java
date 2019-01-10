@@ -28,6 +28,7 @@ public class GpuImage extends Detection {
     public void createBitmap(float threshold) {
         GPUImageThresholdEdgeDetection detection = new GPUImageThresholdEdgeDetection();
         detection.setThreshold(threshold);
+        detection.setLineSize(threshold);
         mGpuImage.setFilter(detection);
         mCallback.photoResult(mGpuImage.getBitmapWithFilterApplied());
     }

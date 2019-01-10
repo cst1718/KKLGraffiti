@@ -1,5 +1,6 @@
 package com.kkl.graffiti.doodle.dialog;
 
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -21,6 +22,7 @@ public class SelectSizeAndAlphaDialog extends BaseAlertDialogFragment
     private final static String SIEZ   = "size";
     private final static String ALPHA  = "alpha";
     private final static String ERASER = "eraser";
+    private final static String COLOR  = "color";
 
     private SeekBar          mSizeSeekbar;
     private SeekBar          mAlaphaSeekbar;
@@ -30,11 +32,12 @@ public class SelectSizeAndAlphaDialog extends BaseAlertDialogFragment
     private TextView         mTvSize;
     private TextView         mTvAlpha;
 
-    public static SelectSizeAndAlphaDialog getSizeSelectDialog(int size, int alpha, boolean eraser) {
+    public static SelectSizeAndAlphaDialog getSizeSelectDialog(int size, int alpha, int color, boolean eraser) {
         SelectSizeAndAlphaDialog dialog = new SelectSizeAndAlphaDialog();
         Bundle bundle = new Bundle();
         bundle.putInt(SIEZ, size);
         bundle.putInt(ALPHA, alpha);
+        bundle.putInt(COLOR, color);
         bundle.putBoolean(ERASER, eraser);
         dialog.setArguments(bundle);
         return dialog;
@@ -47,12 +50,12 @@ public class SelectSizeAndAlphaDialog extends BaseAlertDialogFragment
 
     @Override
     protected double getWidthRate() {
-        return 0.7f;
+        return 0.8f;
     }
 
     @Override
     protected double getHeightRate() {
-        return 0.5f;
+        return 0.6f;
     }
 
     @Override
@@ -89,6 +92,15 @@ public class SelectSizeAndAlphaDialog extends BaseAlertDialogFragment
             tvTitle.setText(ResourceUtils.getResourcesString(R.string.dialog_select_title_eraser));
             view.findViewById(R.id.ll_select_alpha).setVisibility(View.GONE);
             mSizeSeekbar.setMax(150);
+        } else {
+            // 动态设置颜色
+            GradientDrawable thumb = (GradientDrawable) mAlaphaSeekbar.getThumb();
+            GradientDrawable thumb2 = (GradientDrawable) mSizeSeekbar.getThumb();
+            thumb.setColor(getArguments().getInt(COLOR));
+            thumb2.setColor(getArguments().getInt(COLOR));
+            mSizeSeekbar.invalidate();
+            mAlaphaSeekbar.invalidate();
+            mCurveView.setPaintColor(getArguments().getInt(COLOR));
         }
     }
 

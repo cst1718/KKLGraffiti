@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -27,7 +26,7 @@ import java.util.Arrays;
 
 /**
  * @author cst1718 on 2018/12/19 14:37
- * @explain
+ * @explain 展示图
  */
 public class ShowActivity extends BaseActivity implements ViewPager.OnPageChangeListener, View.OnClickListener {
 
@@ -59,9 +58,12 @@ public class ShowActivity extends BaseActivity implements ViewPager.OnPageChange
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show);
+    public int getContentViewLayoutId() {
+        return R.layout.activity_show;
+    }
+
+    @Override
+    public void initViewsAndListeners() {
         if (!initIntent()) {
             finish();
             return;

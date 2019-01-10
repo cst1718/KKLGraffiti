@@ -1,10 +1,8 @@
 package com.kkl.graffiti.setting;
 
 import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.view.MotionEvent;
 import android.view.View;
@@ -63,9 +61,12 @@ public class PPTActivity extends BaseActivity
     private TranslateAnimation mGoneTopAction;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ppt);
+    public int getContentViewLayoutId() {
+        return R.layout.activity_ppt;
+    }
+
+    @Override
+    public void initViewsAndListeners() {
         mActivity = this;
         mPhotoPathList = getDirList();
         if (mPhotoPathList == null || mPhotoPathList.isEmpty()) {

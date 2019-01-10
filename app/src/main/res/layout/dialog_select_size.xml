@@ -40,9 +40,15 @@
             android:text="@string/dialog_select_size"/>
 
         <SeekBar
+            android:layout_margin="@dimen/public_drawable_margin"
             android:id="@+id/sk_select_size"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/select_dialog_seekbar_height"
+            android:layout_height="wrap_content"
+            android:maxHeight="@dimen/select_dialog_seekbar_height"
+            android:minHeight="@dimen/select_dialog_seekbar_height"
+            android:progressDrawable="@drawable/seekbar_line"
+            android:thumb="@drawable/shape_seekbar_dot"
+            android:thumbOffset="0dp"
             />
 
     </LinearLayout>
@@ -65,16 +71,22 @@
             android:text="@string/dialog_select_alpha"/>
 
         <SeekBar
+            android:layout_margin="@dimen/public_drawable_margin"
             android:id="@+id/sk_select_alpha"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/select_dialog_seekbar_height"
+            android:layout_height="wrap_content"
+            android:maxHeight="@dimen/select_dialog_seekbar_height"
+            android:minHeight="@dimen/select_dialog_seekbar_height"
+            android:progressDrawable="@drawable/seekbar_line"
+            android:thumb="@drawable/shape_seekbar_dot"
+            android:thumbOffset="0dp"
             />
     </LinearLayout>
 
     <View
-        android:layout_marginTop="@dimen/public_list_margin"
         android:id="@+id/view_bottom_line"
-        style="@style/Line.Horizontal"/>
+        style="@style/Line.Horizontal"
+        android:layout_marginTop="@dimen/public_list_margin"/>
 
     <LinearLayout
         android:id="@+id/ll_bottom_btn"

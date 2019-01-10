@@ -20,7 +20,9 @@
     <color name="main_color_tab_bg">@color/public_color_title_bg</color>
     <color name="main_tab_line_bg">#2196f3</color>
 
-
     <color name="doodle_btn_pressed_color">@color/public_color_title_bg</color>
     <color name="doodle_btn_border">#88cccccc</color>
+
+    <!-- 粗细选择器 -->
+    <color name="size_dialog_seekbar_progress_color">#ff996dfe</color>  <!-- 进度条颜色 -->
 </resources>

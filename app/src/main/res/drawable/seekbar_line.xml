@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <corners
+                android:radius="@dimen/public_round_radius_50px"/>
+            <solid android:color="@color/public_color_text_explain"/>
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners
+                    android:radius="@dimen/public_round_radius_50px"/>
+                <solid android:color="@color/size_dialog_seekbar_progress_color"/>
+            </shape>
+        </clip>
+    </item>
+</layer-list>

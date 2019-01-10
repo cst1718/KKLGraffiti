@@ -24,9 +24,10 @@
     <dimen name="public_common_border">2px</dimen>              <!-- 2px / shape背景边框描边-->
     <dimen name="public_common_title_height">45dp</dimen>       <!-- 页面统一title的高度 -->
     <dimen name="public_list_margin">14.4dp</dimen>             <!-- 列表两边边距43.2px / 3 -->
-    <dimen name="public_common_line">1px</dimen>                 <!--分割线-->
+    <dimen name="public_common_line">1px</dimen>                <!--分割线-->
     <dimen name="public_round_radius_20px">6.7dp</dimen>        <!-- 圆角半径 /20px  -->
     <dimen name="public_round_radius_30px">10dp</dimen>         <!-- 圆角半径 /30px  -->
+    <dimen name="public_round_radius_50px">16.6dp</dimen>       <!-- 圆角半径 /50px  -->
     <dimen name="public_drawable_margin">5dp</dimen>            <!-- 带图片的文字间距  -->
     <dimen name="public_common_title_margin">3dp</dimen>        <!-- 标题下方如有间隔  -->
 
@@ -44,7 +45,7 @@
     <dimen name="doodle_paint_size">7dp</dimen>
 
     <!-- 选择粗细弹窗 -->
-    <dimen name="select_dialog_seekbar_height">30dp</dimen>
+    <dimen name="select_dialog_seekbar_height">3dp</dimen>
 
     <!-- 颜色选择器 -->
     <dimen name="dialog_color_seekbar_height">30dp</dimen>

@@ -57,6 +57,11 @@ public class SimpleCurveView extends View {
         mPath = new Path();
     }
 
+    public void setPaintColor(int color){
+        mPaint.setColor(color);
+        invalidate();
+    }
+
     /** 画笔大小 */
     public void setLineWidth(int width) {
         mPaint.setStrokeWidth(width);
@@ -73,7 +78,7 @@ public class SimpleCurveView extends View {
     protected void onDraw(Canvas canvas) {
         mPath.moveTo(50, getHeight() / 2);
         mPath.cubicTo(getWidth() / 3, -50, getWidth() - getWidth() / 3, getHeight() + 50, getWidth() - 50, getHeight() / 2);
-        canvas.drawPath(mPath, mPaintBack);
+//        canvas.drawPath(mPath, mPaintBack);
         canvas.drawPath(mPath, mPaint);
     }
 }

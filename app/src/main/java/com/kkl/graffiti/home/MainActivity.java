@@ -2,7 +2,6 @@ package com.kkl.graffiti.home;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -31,9 +30,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private DrawerLayout    mDrawerLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public int getContentViewLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void initViewsAndListeners() {
         initView();
     }
 

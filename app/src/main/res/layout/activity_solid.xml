@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_main_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_common_title_height"
+        android:background="@color/public_color_bg_protrude"
+        >
+
+        <ImageView
+            android:id="@+id/iv_solid_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/btn_titlebar_back_black"
+            />
+
+        <TextView
+            android:id="@+id/tv_solid_title"
+            style="@style/public_style_text_primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="涂鸦板"/>
+
+
+        <TextView
+            android:id="@+id/tv_solid_sure"
+            style="@style/public_style_text_support"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:paddingRight="@dimen/public_list_margin"
+            android:text="@string/public_common_sure"/>
+    </RelativeLayout>
+
+
+    <com.kkl.graffiti.doodle.view.SolidView
+        android:scaleType="fitCenter"
+        android:id="@+id/solid_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <View
+        style="@style/Line.Horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_common_title_height"
+        android:background="@color/public_color_bg_protrude"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_solid_last"
+            android:layout_width="@dimen/doodle_btn_pen_size"
+            android:layout_height="@dimen/doodle_btn_pen_size"
+            android:layout_marginRight="@dimen/doodle_btn_margin"
+            android:background="@drawable/doodle_btn_effect_round"
+            android:scaleType="centerInside"
+            android:src="@drawable/doodle_ic_undo"/>
+
+        <ImageView
+            android:id="@+id/iv_solid_color"
+            android:layout_width="@dimen/doodle_btn_pen_size"
+            android:layout_height="@dimen/doodle_btn_pen_size"
+            android:background="@drawable/doodle_btn_effect_round"
+            android:scaleType="centerInside"
+            android:src="@drawable/doodle_ic_pen"
+            android:visibility="visible"/>
+    </LinearLayout>
+</LinearLayout>

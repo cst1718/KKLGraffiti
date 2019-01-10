@@ -6,12 +6,10 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.media.MediaScannerConnection;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,11 +80,12 @@ public class DoodleActivity extends BaseActivity
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                                  WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_doodle);
+    public int getContentViewLayoutId() {
+        return R.layout.activity_doodle;
+    }
+
+    @Override
+    public void initViewsAndListeners() {
         if (!initIntent()) {
             Toast.makeText(this, "图片有误", Toast.LENGTH_SHORT).show();
             finish();
@@ -206,7 +205,7 @@ public class DoodleActivity extends BaseActivity
                 mNormal = mCropView.getCroppedImage();
                 GpuImage gpuImage = new GpuImage(mActivity, mActivity);
                 gpuImage.detection(mNormal);
-                gpuImage.createBitmap(0.75f);
+                gpuImage.createBitmap(0.85f);
             }
         }).start();
     }
@@ -233,7 +232,7 @@ public class DoodleActivity extends BaseActivity
         Toast.makeText(this, "保存成功", Toast.LENGTH_SHORT).show();
         goBackMainActivity();
 
-        // 魅族不回调
+        // 魅族不回调,所以只要通知让系统搜索即可
         /*new SingleMediaScanner(mActivity, file, new SingleMediaScanner.ScanListener() {
             @Override
             public void onScanFinish() {
@@ -317,7 +316,8 @@ public class DoodleActivity extends BaseActivity
                 mIvPain.setSelected(true);
                 break;
             case R.id.iv_doodle_size:// 字号大小
-                SelectSizeAndAlphaDialog dialog = SelectSizeAndAlphaDialog.getSizeSelectDialog(mDoodleView.getPaintSize(), mDoodleView.getPaintAlpha(), mIvEraser.isSelected());
+                SelectSizeAndAlphaDialog dialog = SelectSizeAndAlphaDialog.getSizeSelectDialog(
+                        mDoodleView.getPaintSize(), mDoodleView.getPaintAlpha(), mDoodleView.getPainColor(), mIvEraser.isSelected());
                 dialog.setOnButtonClickCallback(new SelectSizeAndAlphaDialog.onProgressResult() {
                     @Override
                     public void onResult(int size, int alpha) {
