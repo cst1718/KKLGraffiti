@@ -17,7 +17,9 @@ import java.util.Stack;
 
 /**
  * Created by zhy on 15/5/14.
+ * 效果不好
  */
+@Deprecated
 public class SolidView extends android.support.v7.widget.AppCompatImageView {
 
     private Bitmap mBitmap;
@@ -90,7 +92,7 @@ public class SolidView extends android.support.v7.widget.AppCompatImageView {
         Bitmap bm = mBitmap;
 
         int pixel = bm.getPixel(x, y);
-        Log.e("1718","int == " + pixel);
+        Log.e("1718", "int == " + pixel);
         if (pixel == Color.TRANSPARENT || (hasBorderColor && mBorderColor == pixel)) {
             return;
         }

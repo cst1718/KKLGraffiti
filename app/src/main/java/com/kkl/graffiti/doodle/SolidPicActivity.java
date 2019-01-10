@@ -6,8 +6,9 @@ import com.kkl.graffiti.doodle.view.SolidView;
 
 /**
  * @author cst1718 on 2019/1/3 19:38
- * @explain 涂色
+ * @explain 涂色 效果不好
  */
+@Deprecated
 public class SolidPicActivity extends BaseActivity {
 
     private SolidView mSolidView;
