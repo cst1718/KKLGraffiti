@@ -16,7 +16,7 @@
         android:text="@string/dialog_color_title"/>
 
 
-    <com.kkl.graffiti.doodle.view.ColorPicker.ColorPicker
+    <com.kkl.graffiti.edit.view.ColorPicker.ColorPicker
         android:id="@+id/dialog_color_picker_colorPicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             android:layout_marginRight="@dimen/dialog_color_seekbar_hint_margin"
             android:text="@string/dialog_color_hint_low"/>
 
-        <com.kkl.graffiti.doodle.view.ColorPicker.SVBar
+        <com.kkl.graffiti.edit.view.ColorPicker.SVBar
             android:id="@+id/dialog_color_picker_svbar"
             android:layout_width="0dp"
             android:layout_height="@dimen/dialog_color_seekbar_height"

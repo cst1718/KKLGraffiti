@@ -39,6 +39,10 @@
     <!--我的作品-->
     <dimen name="myphoto_show_padding">@dimen/public_common_title_margin</dimen>
 
+    <!-- 滤镜 -->
+    <dimen name="filter_icon_width">50dp</dimen>    <!-- 滤镜小图片大小 -->
+    <dimen name="filter_icon_margin">10dp</dimen>   <!-- 滤镜小图片边距 -->
+
     <!-- 截图 -->
     <dimen name="doodle_btn_pen_size">32dp</dimen>
     <dimen name="doodle_btn_margin">20dp</dimen>

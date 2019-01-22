@@ -20,8 +20,8 @@ import com.kkl.graffiti.Constants;
 import com.kkl.graffiti.R;
 import com.kkl.graffiti.common.util.PermissionUtils;
 import com.kkl.graffiti.common.util.UriUtils;
-import com.kkl.graffiti.doodle.DoodleActivity;
-import com.kkl.graffiti.doodle.SolidPicActivity;
+import com.kkl.graffiti.edit.EditActivity;
+import com.kkl.graffiti.edit.SolidPicActivity;
 import com.kkl.graffiti.home.MainActivity;
 import com.kkl.graffiti.setting.PPTActivity;
 import com.kkl.graffiti.setting.SettingActivity;
@@ -97,7 +97,7 @@ public class LeftMenuFragment extends BaseFragment implements View.OnClickListen
 
     /** 在activity中回调 */
     private void go2DoodleActivity(String path) {
-        Intent activityIntent = DoodleActivity.getActivityIntent(mActivity, path, DoodleActivity.Type.NORMAL);
+        Intent activityIntent = EditActivity.getActivityIntent(mActivity, path, EditActivity.Type.NORMAL);
         mActivity.startActivityForResult(activityIntent, MainActivity.REQ_DOODLE);
     }
 
@@ -146,7 +146,7 @@ public class LeftMenuFragment extends BaseFragment implements View.OnClickListen
                 }
                 break;
             case R.id.left_menu_normal:// 自带
-                go2SolidPicActivity();
+//                go2SolidPicActivity();
                 break;
             case R.id.left_menu_new:// 新建
                 go2DoodleActivity(null);

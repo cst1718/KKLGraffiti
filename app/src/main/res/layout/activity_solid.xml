@@ -42,7 +42,7 @@
     </RelativeLayout>
 
 
-    <com.kkl.graffiti.doodle.view.SolidView
+    <com.kkl.graffiti.edit.view.SolidView
         android:scaleType="fitCenter"
         android:id="@+id/solid_view"
         android:layout_width="match_parent"

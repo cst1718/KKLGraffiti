@@ -20,8 +20,8 @@ import com.kkl.graffiti.BaseFragment;
 import com.kkl.graffiti.Constants;
 import com.kkl.graffiti.R;
 import com.kkl.graffiti.common.interfaces.OnRecycleViewItemClickListener;
-import com.kkl.graffiti.doodle.DoodleActivity;
-import com.kkl.graffiti.doodle.ShowActivity;
+import com.kkl.graffiti.edit.EditActivity;
+import com.kkl.graffiti.edit.ShowActivity;
 import com.kkl.graffiti.home.adapter.MyPhotoAdapter;
 
 import java.io.File;
@@ -33,7 +33,7 @@ import static android.app.Activity.RESULT_OK;
 
 /**
  * @author cst1718 on 2018/12/4 14:00
- * @explain
+ * @explain 我的作品
  */
 public class MyPhotoFragment extends BaseFragment {
 
@@ -70,7 +70,7 @@ public class MyPhotoFragment extends BaseFragment {
     }
 
     private void go2DoodleActivity(String path) {
-        Intent activityIntent = DoodleActivity.getActivityIntent(mActivity, path, DoodleActivity.Type.NOEDGE);
+        Intent activityIntent = EditActivity.getActivityIntent(mActivity, path, EditActivity.Type.NOEDGE);
         startActivityForResult(activityIntent, REQ_DOODLE);
     }
 
@@ -107,7 +107,6 @@ public class MyPhotoFragment extends BaseFragment {
         @Override
         protected void onPostExecute(ArrayList<HashMap<String, String>> hashMaps) {
             mAdapter.update(hashMaps);
-            mRecyclerView.smoothScrollToPosition(0);
         }
     }
 

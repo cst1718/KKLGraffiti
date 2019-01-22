@@ -12,7 +12,7 @@ import com.kkl.graffiti.common.interfaces.IDialogsCallBack;
 import com.kkl.graffiti.common.util.AppUtils;
 import com.kkl.graffiti.common.util.FileUtils;
 import com.kkl.graffiti.common.util.ResourceUtils;
-import com.kkl.graffiti.doodle.dialog.NormalAlertDialog;
+import com.kkl.graffiti.edit.dialog.NormalAlertDialog;
 import com.kkl.graffiti.view.AboutView;
 
 import java.io.File;

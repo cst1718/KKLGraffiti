@@ -1,9 +1,8 @@
 package com.kkl.graffiti;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 
 /**
  * @author cst1718 on 2018/12/4 13:59
@@ -12,27 +11,26 @@ import android.support.v4.app.FragmentTransaction;
 public class BaseFragment extends Fragment {
 
     /**
-     * FragmentState没帮我们保存Hidden状态，那就我们自己来保存，在页面重启后，我们自己来决定Fragment是否显示！
+     * 不保存状态
      */
-    private static final String STATE_SAVE_IS_HIDDEN = "CCB_IS_HIDDEN";
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
-            boolean isSupportHidden = savedInstanceState.getBoolean(STATE_SAVE_IS_HIDDEN);
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            if (isSupportHidden) {
-                ft.hide(this);
-            } else {
-                ft.show(this);
-            }
-            ft.commit();
-        }
-    }
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putBoolean(STATE_SAVE_IS_HIDDEN, isHidden());
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        // TODO Auto-generated method stub
+        super.startActivity(intent);
+
+        // 设置切换动画，从右边进入，左边退出
+        getActivity().overridePendingTransition(R.anim.anim_push_left_in, R.anim.anim_push_left_out);
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        super.startActivityForResult(intent, requestCode);
+
+        // 设置切换动画，从右边进入，左边退出
+        getActivity().overridePendingTransition(R.anim.anim_push_left_in, R.anim.anim_push_left_out);
     }
 }

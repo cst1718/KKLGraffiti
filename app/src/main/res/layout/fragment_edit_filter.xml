@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/public_color_bg_normal"
+    android:orientation="vertical"
+    >
+
+    <FrameLayout
+        android:id="@+id/ll_filter_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingBottom="@dimen/public_common_title_margin"
+        android:paddingTop="@dimen/public_common_title_margin"
+        >
+        <jp.co.cyberagent.android.gpuimage.GPUImageView
+            android:id="@+id/iv_filter_icon"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            >
+        </jp.co.cyberagent.android.gpuimage.GPUImageView>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/ll_filter_select"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/public_list_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_filter_size"
+                style="@style/public_style_text_primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="0"/>
+
+            <SeekBar
+                android:id="@+id/sk_filter_adjuster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/public_drawable_margin"
+                android:maxHeight="@dimen/select_dialog_seekbar_height"
+                android:minHeight="@dimen/select_dialog_seekbar_height"
+                android:progressDrawable="@drawable/seekbar_line"
+                android:thumb="@drawable/shape_seekbar_dot"
+                android:thumbOffset="0dp"
+                />
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_filter_list"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            >
+        </android.support.v7.widget.RecyclerView>
+
+        <RadioGroup
+            android:id="@+id/rg_filter_adjuster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/public_list_margin"
+            android:textColor="@color/main_txt_tab_selector"
+            android:textSize="@dimen/public_text_size_secondary"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/tv_filter_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:drawablePadding="@dimen/public_common_title_margin"
+                android:drawableTop="@drawable/selector_filter_1"
+                android:gravity="center"
+                android:text="@string/filter_adjuster_1"
+                android:textColor="@color/main_txt_tab_selector"
+                android:textSize="@dimen/public_text_size_secondary"/>
+
+            <RadioButton
+                android:id="@+id/tv_filter_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="@dimen/public_common_title_margin"
+                android:drawableTop="@drawable/selector_filter_2"
+                android:gravity="center"
+                android:text="@string/filter_adjuster_2"
+                android:textColor="@color/main_txt_tab_selector"
+                android:textSize="@dimen/public_text_size_secondary"/>
+
+            <RadioButton
+                android:id="@+id/tv_filter_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="@dimen/public_common_title_margin"
+                android:drawableTop="@drawable/selector_filter_3"
+                android:gravity="center"
+                android:text="@string/filter_adjuster_3"
+                android:textColor="@color/main_txt_tab_selector"
+                android:textSize="@dimen/public_text_size_secondary"/>
+
+            <RadioButton
+                android:id="@+id/tv_filter_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawablePadding="@dimen/public_common_title_margin"
+                android:drawableTop="@drawable/selector_filter_4"
+                android:gravity="center"
+                android:text="@string/filter_adjuster_4"
+                android:textColor="@color/main_txt_tab_selector"
+                android:textSize="@dimen/public_text_size_secondary"/>
+        </RadioGroup>
+    </FrameLayout>
+
+    <View
+        style="@style/Line.Horizontal"/>
+
+    <RadioGroup
+        android:id="@+id/rg_filter_select"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/public_common_title_height"
+        android:background="@color/public_color_bg_protrude"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <RadioButton
+            android:id="@+id/tv_edit_filter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="@string/edit_filter_title"
+            android:textColor="@color/main_txt_tab_selector"
+            android:textSize="@dimen/public_text_size_primary"/>
+
+        <RadioButton
+            android:id="@+id/tv_edit_adjust"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="@string/edit_doodle_adjust"
+            android:textColor="@color/main_txt_tab_selector"
+            android:textSize="@dimen/public_text_size_primary"/>
+    </RadioGroup>
+</LinearLayout>

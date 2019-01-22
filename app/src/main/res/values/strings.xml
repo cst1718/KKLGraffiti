@@ -7,10 +7,24 @@
     <string name="public_common_cancel">取消</string>
     <string name="public_common_yes">是</string>
     <string name="public_common_no">否</string>
+    <string name="public_common_next">下一步</string>
+    <string name="public_common_save">保存</string>
 
     <!-- 首页 -->
     <string name="home_tab_photo_title">我的作品</string>
     <string name="home_tab_piazza_title">广场动态</string>
+
+    <!-- 编辑页 -->
+    <string name="edit_crop_title">裁剪</string>
+    <string name="edit_filter_title">滤镜</string>
+    <string name="edit_doodle_title">涂鸦</string>
+    <string name="edit_doodle_adjust">调整</string>
+
+    <!-- 滤镜 -->
+    <string name="filter_adjuster_1">亮度</string>
+    <string name="filter_adjuster_2">对比度</string>
+    <string name="filter_adjuster_3">饱和度</string>
+    <string name="filter_adjuster_4">色调</string>
 
     <!-- 涂鸦 -->
     <string name="dialog_save_doodle_msg">是否保存到我的作品中？</string>
