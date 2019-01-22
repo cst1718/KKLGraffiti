@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.kkl.graffiti"
           xmlns:android="http://schemas.android.com/apk/res/android"
-          android:versionCode="006"
+          android:versionCode="007"
           android:versionName="1.10.00">
 
     <!-- 相机 -->
@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-            android:name=".doodle.DoodleActivity"
+            android:name=".edit.EditActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -36,7 +36,7 @@
             />
 
         <activity
-            android:name=".doodle.ShowActivity"
+            android:name=".edit.ShowActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
@@ -69,7 +69,7 @@
             />
 
         <activity
-            android:name=".doodle.SolidPicActivity"
+            android:name=".edit.SolidPicActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
