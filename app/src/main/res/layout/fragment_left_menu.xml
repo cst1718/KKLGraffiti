@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/public_color_bg_protrude"
-    android:orientation="vertical"
     android:clickable="true"
     android:focusable="true"
+    android:orientation="vertical"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/public_color_title_bg"
+        android:background="@drawable/statusbar_bg"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/public_list_margin">
@@ -22,7 +22,7 @@
             android:id="@+id/iv_leftmenu_userlogo"
             android:layout_width="@dimen/left_menu_icon_width"
             android:layout_height="@dimen/left_menu_icon_width"
-            android:src="@drawable/chcd_headimage_logged"
+            android:src="@drawable/hum_icon_normal"
             />
 
         <TextView
@@ -43,57 +43,85 @@
     <com.kkl.graffiti.view.AboutView
         android:id="@+id/left_menu_camera"
         style="@style/List.Primary"
-        app:about_left_src="@drawable/golbal_message_focus"
+        android:layout_marginLeft="@dimen/left_menu_item_left_margin"
+        app:about_left_src="@drawable/left_menu_carmen"
         app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
         app:about_left_text="@string/left_menu_camera"
         />
 
+    <View
+        style="@style/Line.Horizontal.LeftMenu"/>
+
     <com.kkl.graffiti.view.AboutView
         android:id="@+id/left_menu_album"
         style="@style/List.Primary"
-        app:about_left_src="@drawable/golbal_message_focus"
+        android:layout_marginLeft="@dimen/left_menu_item_left_margin"
+        app:about_left_src="@drawable/left_menu_loc"
         app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
         app:about_left_text="@string/left_menu_album"
         />
 
+    <View
+        style="@style/Line.Horizontal.LeftMenu"/>
+
     <com.kkl.graffiti.view.AboutView
         android:id="@+id/left_menu_normal"
         style="@style/List.Primary"
-        app:about_left_src="@drawable/golbal_message_focus"
+        android:layout_marginLeft="@dimen/left_menu_item_left_margin"
+        app:about_left_src="@drawable/left_menu_normal"
         app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
         app:about_left_text="@string/left_menu_normal"
         />
 
+    <View
+        style="@style/Line.Horizontal.LeftMenu"/>
+
     <com.kkl.graffiti.view.AboutView
         android:id="@+id/left_menu_new"
         style="@style/List.Primary"
-        app:about_left_src="@drawable/golbal_message_focus"
+        android:layout_marginLeft="@dimen/left_menu_item_left_margin"
+        app:about_left_src="@drawable/left_menu_new"
         app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
         app:about_left_text="@string/left_menu_new"
         />
 
+    <View
+        style="@style/Line.Horizontal.LeftMenu"/>
+
     <com.kkl.graffiti.view.AboutView
         android:id="@+id/left_menu_powerpoint"
         style="@style/List.Primary"
-        app:about_left_src="@drawable/golbal_message_focus"
+        android:layout_marginLeft="@dimen/left_menu_item_left_margin"
+        app:about_left_src="@drawable/left_menu_ppt"
         app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
         app:about_left_text="@string/left_menu_powerpoint"
         />
 
+    <View
+        style="@style/Line.Horizontal.LeftMenu"/>
+
     <com.kkl.graffiti.view.AboutView
         android:id="@+id/left_menu_tutorials"
         style="@style/List.Primary"
-        app:about_left_src="@drawable/golbal_message_focus"
+        android:layout_marginLeft="@dimen/left_menu_item_left_margin"
+        app:about_left_src="@drawable/left_menu_teacher"
         app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
         app:about_left_text="@string/left_menu_tutorials"
         />
 
+    <View
+        style="@style/Line.Horizontal.LeftMenu"/>
+
     <com.kkl.graffiti.view.AboutView
         android:id="@+id/left_menu_setting"
         style="@style/List.Primary"
-        app:about_left_src="@drawable/golbal_message_focus"
+        android:layout_marginLeft="@dimen/left_menu_item_left_margin"
+        app:about_left_src="@drawable/left_menu_setting"
         app:about_left_src_margin="@dimen/left_menu_item_left_icon_margin"
         app:about_left_text="@string/left_menu_setting"
         />
+
+    <View
+        style="@style/Line.Horizontal.LeftMenu"/>
 
 </LinearLayout>

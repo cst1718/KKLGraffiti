@@ -23,8 +23,9 @@
     <dimen name="public_list_subtitle_marginTop">3dp</dimen>    <!-- 通用的条目有副标题的marginTop -->
     <dimen name="public_common_border">2px</dimen>              <!-- 2px / shape背景边框描边-->
     <dimen name="public_common_title_height">45dp</dimen>       <!-- 页面统一title的高度 -->
-    <dimen name="public_list_margin">14.4dp</dimen>             <!-- 列表两边边距43.2px / 3 -->
+    <dimen name="public_list_margin">19.3dp</dimen>             <!-- 列表两边边距58px / 3 -->
     <dimen name="public_common_line">1px</dimen>                <!--分割线-->
+    <dimen name="public_round_radius_10px">3.3dp</dimen>        <!-- 圆角半径 /10px  -->
     <dimen name="public_round_radius_20px">6.7dp</dimen>        <!-- 圆角半径 /20px  -->
     <dimen name="public_round_radius_30px">10dp</dimen>         <!-- 圆角半径 /30px  -->
     <dimen name="public_round_radius_50px">16.6dp</dimen>       <!-- 圆角半径 /50px  -->
@@ -32,7 +33,7 @@
     <dimen name="public_common_title_margin">3dp</dimen>        <!-- 标题下方如有间隔  -->
 
     <!-- 页面列表3种高度和边距 -->
-    <dimen name="public_list_primary_height">48dp</dimen>       <!-- 144px / 3 -->
+    <dimen name="public_list_primary_height">50.3dp</dimen>       <!-- 151px / 3 -->
     <dimen name="public_list_secondary_height">91.4dp</dimen>   <!-- 274px / 3 -->
     <dimen name="public_list_third_height">67.3dp</dimen>       <!-- 202px / 3 -->
 
@@ -70,6 +71,12 @@
     <dimen name="bar_pointer_halo_radius">14dp</dimen>
 
     <!-- 侧滑栏 -->
-    <dimen name="left_menu_icon_width">76dp</dimen>
-    <dimen name="left_menu_item_left_icon_margin">32dp</dimen>
+    <dimen name="left_menu_icon_width">66.6dp</dimen>
+    <dimen name="left_menu_item_left_icon_margin">16.6dp</dimen> <!-- 50px -->
+    <dimen name="left_menu_item_left_margin">63dp</dimen> <!-- 190px -->
+    <dimen name="left_menu_line_height">1dp</dimen> <!-- 190px -->
+
+
+    <!--====================================2019.01.24 UI标准======================================-->
+    <dimen name="public_text_size_35px">11.6sp</dimen>
 </resources>

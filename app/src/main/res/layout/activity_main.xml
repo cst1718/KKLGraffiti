@@ -17,10 +17,11 @@
             android:id="@+id/rl_main_title"
             android:layout_width="match_parent"
             android:layout_height="@dimen/public_common_title_height"
-            android:background="@color/public_color_title_bg"
+            android:background="@drawable/statusbar_bg"
             >
 
             <ImageView
+                android:layout_marginLeft="@dimen/public_list_margin"
                 android:id="@+id/iv_main_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -30,11 +31,12 @@
 
             <TextView
                 android:id="@+id/tv_main_title"
-                style="@style/public_style_text_primary"
+                style="@style/public_style_text_title"
+                android:textColor="@color/public_color_text_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="涂鸦板"/>
+                android:text="@string/public_common_title"/>
         </RelativeLayout>
 
         <android.support.design.widget.TabLayout
@@ -42,10 +44,10 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             app:tabRippleColor="@color/transparent"
-            android:background="@color/main_color_tab_bg"
+            android:background="@drawable/statusbar_bg"
             app:tabIndicatorColor="@color/main_tab_line_bg"
-            app:tabSelectedTextColor="@color/public_color_text_primary"
-            app:tabTextColor="@color/public_color_text_explain"
+            app:tabSelectedTextColor="@color/public_color_text_title"
+            app:tabTextColor="@color/public_color_text_title_transparent_45"
             >
 
         </android.support.design.widget.TabLayout>

@@ -46,6 +46,11 @@ public class TeacherDrawActivity extends BaseActivity implements View.OnClickLis
         }
     }
 
+    @Override
+    protected boolean immersionStatusBar() {
+        return true;
+    }
+
     private boolean initIntent() {
         if (getIntent() == null) {
             return false;

@@ -13,7 +13,12 @@
     <color name="public_color_text_offline">#BFBFBF</color>         <!-- 不可用/置灰 -->
     <color name="public_color_line">#EFEFEF</color>                 <!-- 分割线 -->
     <color name="public_color_title_bg">#FFC107</color>
-    <color name="public_color_black_transparent_6">#0F000000</color>            <!-- 黑色6%透明 -->
+    <color name="public_color_black_transparent_6">#0F000000</color>            <!-- 黑色6%不透明 -->
+    <color name="public_color_black_transparent_2">#05000000</color>            <!-- 黑色2%不透明 -->
+
+    <!--======================================== 2019.01.22 UI样式 ==========================================-->
+    <color name="public_color_text_title">#FEFEFE</color>           <!-- 标题颜色 -->
+    <color name="public_color_text_title_transparent_45">#73fefefe</color>  <!-- 不透明度45 -->
 
 
     <!-- 首页tab -->

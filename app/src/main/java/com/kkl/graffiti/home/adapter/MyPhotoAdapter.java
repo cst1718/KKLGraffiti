@@ -4,6 +4,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.kkl.graffiti.BaseActivity;
 import com.kkl.graffiti.Constants;
 import com.kkl.graffiti.R;
 import com.kkl.graffiti.common.interfaces.OnRecycleViewItemClickListener;
+import com.kkl.graffiti.common.util.ResourceUtils;
 import com.kkl.graffiti.common.util.Util;
 import com.squareup.picasso.Picasso;
 
@@ -26,12 +28,16 @@ import java.util.HashMap;
  */
 public class MyPhotoAdapter extends RecyclerView.Adapter<MyPhotoAdapter.MyPhotoHolder> {
 
-    private BaseActivity                           mActivity;
-    private ArrayList<HashMap<String, String>>     mList;
-    private OnRecycleViewItemClickListener<String> mListener;
+    private       BaseActivity                           mActivity;
+    private       ArrayList<HashMap<String, String>>     mList;
+    private       OnRecycleViewItemClickListener<String> mListener;
+    private final int                                    mWidthPixels;
 
     public MyPhotoAdapter(BaseActivity activity) {
         mActivity = activity;
+        DisplayMetrics viewMEtrics = activity.getResources()
+                .getDisplayMetrics();
+        mWidthPixels = viewMEtrics.widthPixels;
     }
 
     public void update(ArrayList<HashMap<String, String>> list) {
@@ -65,6 +71,8 @@ public class MyPhotoAdapter extends RecyclerView.Adapter<MyPhotoAdapter.MyPhotoH
                 .fit()
                 .error(R.drawable.doodle_ic_zoomer)
                 .centerCrop()
+                .skipMemoryCache()
+                .transform(new CircleTransform(ResourceUtils.getResourcesDimension(R.dimen.public_round_radius_10px), mWidthPixels / 3))
                 .into(myPhotoHolder.mIvPic);
         myPhotoHolder.mIvPic.setOnClickListener(new View.OnClickListener() {
             @Override

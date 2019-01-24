@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/public_common_title_height"
-        android:background="@color/public_color_title_bg"
+        android:background="@drawable/statusbar_bg"
         >
 
         <ImageView
@@ -23,11 +23,12 @@
 
         <TextView
             android:id="@+id/tv_teach_draw_title"
-            style="@style/public_style_text_primary"
+            style="@style/public_style_text_title"
+            android:textColor="@color/public_color_text_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="涂鸦板"/>
+            android:text="@string/public_common_title"/>
     </RelativeLayout>
 
     <ScrollView

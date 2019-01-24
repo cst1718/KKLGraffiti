@@ -3,6 +3,7 @@ package com.kkl.graffiti;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
 
 import com.kkl.graffiti.common.util.ResourceUtils;
 
@@ -43,6 +44,10 @@ public abstract class BaseActivity extends FragmentActivity {
 
         afterSetContentView();
         initViewsAndListeners();
+
+        if(immersionStatusBar()){
+            changeStatusBarColor();
+        }
     }
 
     private void initConfig() {
@@ -60,5 +65,29 @@ public abstract class BaseActivity extends FragmentActivity {
 
     protected void afterSetContentView() {
 
+    }
+
+    /** 是否沉浸式状态栏 */
+    protected boolean immersionStatusBar() {
+        return false;
+    }
+
+    private void changeStatusBarColor() {
+        getWindow().getDecorView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            private View statusBarView;
+
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                getWindow().getDecorView().removeOnLayoutChangeListener(this);
+                if (statusBarView == null) {
+                    //利用反射机制修改状态栏背景
+                    int identifier = getResources().getIdentifier("statusBarBackground", "id", "android");
+                    statusBarView = getWindow().findViewById(identifier);
+                }
+                if (statusBarView != null) {
+                    statusBarView.setBackgroundResource(R.drawable.statusbar_bg);
+                }
+            }
+        });
     }
 }

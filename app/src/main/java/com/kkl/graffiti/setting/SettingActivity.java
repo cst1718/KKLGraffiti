@@ -43,6 +43,11 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         initView();
     }
 
+    @Override
+    protected boolean immersionStatusBar() {
+        return true;
+    }
+
     private void initView() {
         mActivity = SettingActivity.this;
         mClean = findViewById(R.id.av_about_clean);

@@ -75,7 +75,7 @@ public class EditActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public int getContentViewLayoutId() {
-        return R.layout.activity_doodle;
+        return R.layout.activity_edit;
     }
 
     @Override

@@ -1,8 +1,7 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimaryDark">@color/public_color_title_bg</item>
     </style>
 
     <style name="MyDialog" parent="@android:style/Theme.Dialog">
@@ -63,6 +62,11 @@
         <item name="android:layout_height">@dimen/public_common_line</item>
     </style>
 
+    <style name="Line.Horizontal.LeftMenu">
+        <item name="android:background">@color/public_color_black_transparent_2</item>
+        <item name="android:layout_height">@dimen/left_menu_line_height</item>
+    </style>
+
     <!--=============================================列表样式==========================================================-->
     <style name="List">
         <item name="android:layout_width">match_parent</item>
@@ -90,7 +94,7 @@
     <!-- 关于我们条目样式 -->
     <style name="about_item_left_style">
         <item name="android:textColor">@color/public_color_text_primary</item>
-        <item name="android:textSize">@dimen/public_text_size_primary</item>
+        <item name="android:textSize">@dimen/public_text_size_35px</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center_vertical</item>

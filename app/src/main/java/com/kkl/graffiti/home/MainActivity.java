@@ -39,6 +39,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         initView();
     }
 
+    @Override
+    protected boolean immersionStatusBar() {
+        return true;
+    }
+
     private void initView() {
         mPhotoFragment = new MyPhotoFragment();
         mPiazzaFragment = new PiazzaFragment();

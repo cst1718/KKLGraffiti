@@ -9,6 +9,7 @@
     <string name="public_common_no">否</string>
     <string name="public_common_next">下一步</string>
     <string name="public_common_save">保存</string>
+    <string name="public_common_title">涂鸦板</string>
 
     <!-- 首页 -->
     <string name="home_tab_photo_title">我的作品</string>

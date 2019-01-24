@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/global_icon_more_n" android:state_enabled="false" android:state_window_focused="false"/>
-    <item android:drawable="@drawable/global_icon_more_p" android:state_enabled="true" android:state_pressed="true"/>
-    <item android:drawable="@drawable/global_icon_more_n"/>
+    <item android:drawable="@drawable/page1" android:state_enabled="false" android:state_window_focused="false"/>
+    <item android:drawable="@drawable/page1" android:state_enabled="true" android:state_pressed="true"/>
+    <item android:drawable="@drawable/page1"/>
 </selector>

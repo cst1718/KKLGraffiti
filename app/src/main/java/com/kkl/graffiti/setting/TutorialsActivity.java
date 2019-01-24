@@ -33,6 +33,11 @@ public class TutorialsActivity extends BaseActivity implements View.OnClickListe
         initView();
     }
 
+    @Override
+    protected boolean immersionStatusBar() {
+        return true;
+    }
+
     private void initView() {
         mMouse = findViewById(R.id.av_teach_mouse);
         mCow = findViewById(R.id.av_teach_cow);
@@ -46,10 +51,10 @@ public class TutorialsActivity extends BaseActivity implements View.OnClickListe
         mPanda.setOnClickListener(this);
         mPeiqi.setOnClickListener(this);
         mBack.setOnClickListener(this);
-        mMouse.showRightDraw(R.drawable.mouse,0);
-        mCow.showRightDraw(R.drawable.cow,0);
-        mPanda.showRightDraw(R.drawable.panda,0);
-        mPeiqi.showRightDraw(R.drawable.peiqi,0);
+        mMouse.showRightDraw(R.drawable.mouse, 0);
+        mCow.showRightDraw(R.drawable.cow, 0);
+        mPanda.showRightDraw(R.drawable.panda, 0);
+        mPeiqi.showRightDraw(R.drawable.peiqi, 0);
     }
 
     private void go2TeachDrawActivity(String path, String title) {
@@ -61,13 +66,13 @@ public class TutorialsActivity extends BaseActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.av_teach_mouse:
-                go2TeachDrawActivity("mouse.jpg",ResourceUtils.getResourcesString(R.string.teach_item_mouse));
+                go2TeachDrawActivity("mouse.jpg", ResourceUtils.getResourcesString(R.string.teach_item_mouse));
                 break;
             case R.id.av_teach_cow:
-                go2TeachDrawActivity("cow.jpg",ResourceUtils.getResourcesString(R.string.teach_item_cow));
+                go2TeachDrawActivity("cow.jpg", ResourceUtils.getResourcesString(R.string.teach_item_cow));
                 break;
             case R.id.av_teach_panda:
-                go2TeachDrawActivity("panda.jpg",ResourceUtils.getResourcesString(R.string.teach_item_panda));
+                go2TeachDrawActivity("panda.jpg", ResourceUtils.getResourcesString(R.string.teach_item_panda));
                 break;
             case R.id.av_teach_peiqi:
                 go2TeachDrawActivity("peiqi.jpg", ResourceUtils.getResourcesString(R.string.teach_item_peiqi));
