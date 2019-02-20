@@ -243,8 +243,12 @@ public class PPTActivity extends BaseActivity
 
     @Override
     protected void onDestroy() {
-        mCache.clearAllMemoryCache();
-        mHandler.removeCallbacksAndMessages(null);
+        if (mCache != null) {
+            mCache.clearAllMemoryCache();
+        }
+        if (mHandler != null) {
+            mHandler.removeCallbacksAndMessages(null);
+        }
         super.onDestroy();
     }
 }
